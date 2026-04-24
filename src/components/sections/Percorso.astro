@@ -71,7 +71,7 @@ const cards: Card[] = [
       Ogni tappa risponde a una sola domanda. Si entra dal primo scalino o si salta direttamente al livello giusto.
     </p>
 
-    <div class="mt-16 space-y-10">
+    <div class="mt-16 space-y-10" id="percorso-cards">
       {cards.map((card) => (
         <article class="bg-cream border border-stone/15 rounded-2xl p-8 md:p-12">
           <div class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start">
@@ -112,6 +112,15 @@ const cards: Card[] = [
           </div>
         </article>
       ))}
+    </div>
+
+    <div class="mt-12 flex justify-center">
+      <a
+        href="/percorso"
+        class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+      >
+        Vedi il percorso completo &rarr;
+      </a>
     </div>
   </Container>
 </section>

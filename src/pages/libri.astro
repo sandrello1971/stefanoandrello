@@ -1,0 +1,203 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+
+const title =
+  'I libri di Stefano Andrello — Intelligenza Artificiale per chi non vuole smettere di pensare';
+const description =
+  'Due libri sull\'intelligenza artificiale: Il Futuro non è scritto e L\'Intelligenza Artificiale in Pratica. Sinossi, estratti, link Amazon.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-20 md:py-28">
+    <Container>
+      <nav class="text-xs text-stone mb-8" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-midnight transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-charcoal">Libri</span>
+      </nav>
+      <p class="text-xs uppercase tracking-widest text-stone font-medium">
+        Libreria
+      </p>
+      <h1 class="mt-4 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-midnight leading-[1.1]">
+        I libri.
+      </h1>
+      <p class="mt-6 text-xl text-stone leading-relaxed max-w-2xl">
+        Due volumi per esplorare l&apos;intelligenza artificiale tra narrativa e pratica.
+      </p>
+    </Container>
+  </section>
+
+  <section class="py-20">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-start">
+        <div class="md:col-span-2">
+          <img
+            src="/img/libri/ia-in-pratica.jpg"
+            alt="Copertina di L'Intelligenza Artificiale in Pratica - Guida critica per educatori e professionisti, di Stefano Andrello"
+            width="640"
+            height="960"
+            loading="eager"
+            class="rounded-lg shadow-2xl max-w-[320px] w-full mx-auto"
+          />
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-xs uppercase tracking-widest text-stone font-medium">
+            Dicembre 2025 &middot; 206 pagine
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+            L&apos;Intelligenza Artificiale in Pratica
+          </h2>
+          <p class="mt-3 italic text-stone text-lg">
+            Guida critica per educatori e professionisti &mdash; Per una Pedagogia Critica dell&apos;IA
+          </p>
+
+          <div class="mt-8 space-y-5 text-charcoal leading-relaxed">
+            <p>
+              Dall&apos;autore di <em>Il Futuro non è scritto</em>, la guida operativa per passare dalla teoria alla pratica nell&apos;era dell&apos;Intelligenza Artificiale.
+            </p>
+            <p>
+              Alle 7:12 un algoritmo decide la tua strada per il lavoro. Alle 9:30 un software seleziona il candidato ideale, scartando il tuo curriculum. L&apos;Intelligenza Artificiale non è più il futuro: è il collega silenzioso che siede già nei nostri uffici, nelle aule scolastiche e nei consigli di amministrazione.
+            </p>
+            <p>
+              La domanda non è più <em>se</em> usarla, ma <em>come</em> governarla senza farsi sostituire.
+            </p>
+            <p>
+              Non un saggio filosofico, ma un manuale operativo di &laquo;pedagogia critica&raquo; per chi deve gestire la transizione digitale oggi: educatori, formatori, professionisti.
+            </p>
+          </div>
+
+          <dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Pagine</dt>
+              <dd class="mt-1 text-charcoal">206</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Lingua</dt>
+              <dd class="mt-1 text-charcoal">Italiano</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Editore</dt>
+              <dd class="mt-1 text-charcoal">Indipendente</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Pubblicato</dt>
+              <dd class="mt-1 text-charcoal">4 dicembre 2025</dd>
+            </div>
+          </dl>
+
+          <div class="mt-10 flex flex-col sm:flex-row flex-wrap gap-4">
+            <a
+              href="https://www.amazon.it/dp/B0G58CYJ4V"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+            >
+              Acquista su Amazon &mdash; 15,60 &euro; &rarr;
+            </a>
+            <a
+              href="https://www.amazon.it/dp/B0G58CYJ4V"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center border border-midnight text-midnight rounded-full px-8 py-3 font-medium hover:bg-midnight hover:text-cream transition-colors"
+            >
+              Versione Kindle &mdash; 7,99 &euro; &rarr;
+            </a>
+          </div>
+          <div class="mt-4">
+            <a
+              href="#"
+              class="text-sm text-stone hover:text-midnight transition-colors"
+            >
+              Scarica un capitolo gratuito &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-6">
+    <hr class="border-t border-stone/20" />
+  </div>
+
+  <section class="py-20 bg-sand">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-start">
+        <div class="md:col-span-2">
+          <img
+            src="/img/libri/futuro-non-scritto.jpg"
+            alt="Copertina di Il Futuro non è scritto - Memorie di un'Intelligenza Artificiale, di Stefano Andrello"
+            width="640"
+            height="960"
+            loading="lazy"
+            class="rounded-lg shadow-2xl max-w-[320px] w-full mx-auto"
+          />
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-xs uppercase tracking-widest text-stone font-medium">
+            Primo volume
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+            Il Futuro non è scritto
+          </h2>
+          <p class="mt-3 italic text-stone text-lg">
+            Memorie di un&apos;Intelligenza Artificiale
+          </p>
+
+          <div class="mt-8 space-y-5 text-charcoal leading-relaxed">
+            <p>
+              Un viaggio narrativo nel mondo dell&apos;AI raccontato in prima persona. L&apos;AI parla di sé: chi è, da dove viene, dove sta andando.
+            </p>
+            <p>
+              Dalle origini del Test di Turing al Deep Learning, dall&apos;Inverno dell&apos;AI al boom dei Large Language Model, una voce non umana racconta la propria storia, le proprie capacità e i propri limiti &mdash; senza falsi miti né apocalittiche promesse.
+            </p>
+            <p>
+              Un libro per chi vuole capire l&apos;intelligenza artificiale dall&apos;interno, attraverso una metafora narrativa che funziona da chiave di lettura.
+            </p>
+            <p>
+              Citato come opera di riferimento nel volume successivo <em>L&apos;Intelligenza Artificiale in Pratica</em>.
+            </p>
+          </div>
+
+          <div class="mt-10 flex flex-col sm:flex-row flex-wrap gap-4">
+            <a
+              href="https://www.amazon.it/dp/B0F8K8367C"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+            >
+              Acquista su Amazon &rarr;
+            </a>
+          </div>
+          <div class="mt-4">
+            <a
+              href="#"
+              class="text-sm text-stone hover:text-midnight transition-colors"
+            >
+              Scarica un estratto &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-24">
+    <Container>
+      <div class="max-w-2xl">
+        <p class="text-lg text-charcoal leading-relaxed">
+          Stefano scrive di intelligenza artificiale dal 2024. I suoi libri sono usati come testi di riferimento in corsi di formazione aziendale e in alcuni istituti scolastici.
+        </p>
+        <a
+          href="/contatti"
+          class="mt-8 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+        >
+          Parliamo di formazione &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

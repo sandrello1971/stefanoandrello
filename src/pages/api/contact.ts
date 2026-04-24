@@ -2,10 +2,12 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
 const tipoLabels: Record<string, string> = {
-  primus: 'Formazione PRIMUS',
-  consilium: 'Formazione CONSILIUM',
-  initium: 'Formazione INITIUM',
-  consulenza: 'Consulenza AI agentica/MCP',
+  primus: 'Formazione PRIMUS (4h)',
+  consilium: 'Formazione CONSILIUM (7h)',
+  initium: 'Formazione INITIUM (20h)',
+  'consulenza-agentica': 'Consulenza AI agentica',
+  mcp: 'Sviluppo MCP server',
+  speaking: 'Speaking / eventi',
   altro: 'Altro',
 };
 

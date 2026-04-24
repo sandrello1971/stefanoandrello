@@ -48,9 +48,15 @@ import Container from '../Container.astro';
       </div>
 
       <div class="lg:col-span-2 flex justify-center lg:justify-end">
-        <div class="bg-stone/20 aspect-square w-full max-w-[360px] rounded-lg flex items-center justify-center">
-          <span class="text-stone text-sm">Foto di Stefano</span>
-        </div>
+        <img
+          src="/img/stefano.png"
+          alt="Stefano Andrello, AI Strategist per PMI italiane"
+          width="720"
+          height="720"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-square object-cover rounded-lg shadow-xl max-w-[360px] w-full mx-auto"
+        />
       </div>
     </div>
   </Container>

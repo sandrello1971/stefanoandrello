@@ -4,12 +4,14 @@
 
 ## Pagine principali
 
-- [Home](https://stefanoandrello.me/): panoramica del percorso AI Ratio, calcolatore del costo nascosto dell'inefficienza, compliance EU AI Act.
+- [Home](https://stefanoandrello.me/): panoramica sintetica delle aree di attività di Stefano, calcolatore del costo nascosto, compliance EU AI Act.
+- [Percorso AI Ratio](https://stefanoandrello.me/percorso): pagina dedicata al metodo in tre tappe (perché/cosa/come), con moduli dettagliati e tabella compliance Art. 4.
 - [PRIMUS — Il risveglio consapevole](https://stefanoandrello.me/corsi/primus): workshop esperienziale di 4 ore. Risponde alla domanda "perché" occuparsi di AI ora.
 - [CONSILIUM — La bussola strategica](https://stefanoandrello.me/corsi/consilium): laboratorio direzionale di 7 ore per imprenditori e direzione. Risponde alla domanda "cosa" fare. Include certificazione Certified AI Strategist.
 - [INITIUM — Le fondamenta operative](https://stefanoandrello.me/corsi/initium): 20 ore + esame di certificazione per team aziendali. Corso di compliance primaria per l'Art. 4 EU AI Act. Risponde alla domanda "come" usare l'AI.
+- [Libri](https://stefanoandrello.me/libri): i due libri di Stefano Andrello sull'intelligenza artificiale — "L'Intelligenza Artificiale in Pratica" (2025, guida critica per educatori e professionisti) e "Il Futuro non è scritto" (memorie di un'AI).
 - [Blog](https://stefanoandrello.me/blog): articoli su EU AI Act, AI agentica, MCP, adozione AI nelle PMI.
-- [Contatti](https://stefanoandrello.me/#contatti): richieste formazione, consulenza AI agentica/MCP.
+- [Contatti](https://stefanoandrello.me/contatti): form completo per formazione, consulenza AI agentica, sviluppo MCP server, speaking.
 - [Glitch — Manifesto](https://stefanoandrello.me/glitch): manifesto del brand Glitch, posizione culturale sull'AI antropocentrica.
 
 ## Aree di expertise
