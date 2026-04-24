@@ -1,0 +1,391 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+
+const title =
+  'Chi è Stefano Andrello — AI Strategist, autore, founder di Noscite | stefanoandrello.me';
+const description =
+  "Stefano Andrello, AI Strategist per PMI italiane. Oltre 30 anni nelle telecomunicazioni e nel digitale. Autore di due libri sull'intelligenza artificiale. Founder di Noscite e creatore del manifesto Glitch.";
+
+const timeline = [
+  {
+    period: '1993–1998',
+    role: 'Research & Development · Atitalia',
+    quote:
+      'Inizio nelle TLC. Imparo che l\'infrastruttura è la cosa più sottovalutata e più importante del digitale.',
+  },
+  {
+    period: '1999–2008',
+    role: 'Senior System Engineer · Tecnonet, Dimension Data',
+    quote:
+      'Progetti di rete complessi per Vodafone, banche, operatori satellitari. Imparo che la complessità si governa con metodo, non con ingegno.',
+  },
+  {
+    period: '2012–2019',
+    role: 'Project Manager · Dimension Data, Spindox',
+    quote:
+      'Vodafone, Skylogic. Project management su infrastrutture VoIP, MPLS, satellitari. Imparo che la tecnologia è il 30% del problema; le persone sono il 70%.',
+  },
+  {
+    period: '2019',
+    role: 'Co-founder · AV Media Trend',
+    quote:
+      'Mi sposto dal puramente tecnico al digital marketing e alla formazione. Inizio a lavorare con le PMI italiane, scoprendo quanto la trasformazione digitale sia stata mal raccontata.',
+  },
+  {
+    period: '2021',
+    role: 'AI Expert e Formatore AI',
+    quote:
+      "L'intelligenza artificiale entra al centro del mio lavoro. Sviluppo moduli formativi, laboratori pratici, integrazione AI nei processi aziendali.",
+  },
+  {
+    period: '2025–2026',
+    role: 'Founder Noscite, autore, manifesto Glitch',
+    quote:
+      "Pubblico due libri sull'AI. Fondo Noscite per strutturare formazione e consulenza in modo serio. Lancio Glitch, il manifesto sull'umano nell'era dell'AI.",
+  },
+];
+
+const focus = [
+  {
+    label: 'Formazione',
+    body:
+      "Il Percorso AI Ratio: tre corsi conformi all'Art. 4 EU AI Act — PRIMUS (workshop 4h), CONSILIUM (laboratorio direzionale 7h), INITIUM (certificazione 20h).",
+    cta: 'Vedi il percorso',
+    href: '/percorso',
+  },
+  {
+    label: 'Consulenza strategica',
+    body:
+      'Affianco direzioni di PMI nelle scelte di integrazione AI: dove applicarla, dove no, con quali regole, con quale governance.',
+    cta: 'Parliamone',
+    href: '/contatti',
+  },
+  {
+    label: 'AI agentica & MCP',
+    body:
+      'Progetto agenti AI per processi aziendali specifici. Sviluppo MCP server custom per connettere modelli di linguaggio ai dati interni in modo governato.',
+    cta: 'Scrivimi',
+    href: '/contatti',
+  },
+  {
+    label: 'Scrittura e speaking',
+    body:
+      "Due libri pubblicati nel 2025. Speaking presso eventi e formazione in scuole e istituti. Manifesto Glitch sulla centralità dell'umano.",
+    cta: 'Leggi i libri',
+    href: '/libri',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schemaType="Person">
+  <!-- 1. HERO -->
+  <section class="py-20 md:py-28">
+    <Container>
+      <nav class="text-xs text-stone mb-8" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-midnight transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-charcoal">Chi sono</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-2">
+          <img
+            src="/img/stefano.png"
+            alt="Stefano Andrello, AI Strategist per PMI italiane"
+            width="840"
+            height="1050"
+            loading="eager"
+            fetchpriority="high"
+            class="rounded-lg shadow-2xl w-full max-w-[420px] aspect-[4/5] object-cover mx-auto"
+          />
+        </div>
+
+        <div class="lg:col-span-3">
+          <p class="text-xs uppercase tracking-widest text-stone font-medium">
+            Chi sono
+          </p>
+          <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-midnight leading-[1.05]">
+            Stefano Andrello.
+          </h1>
+          <p class="mt-6 text-xl text-stone leading-relaxed">
+            AI Strategist &middot; Autore &middot; Founder di Noscite e Glitch
+          </p>
+
+          <ul class="mt-8 flex flex-wrap gap-3">
+            <li class="border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+              30+ anni nel digitale
+            </li>
+            <li class="border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+              AI Evangelist dal 2021
+            </li>
+            <li class="border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+              2 libri pubblicati
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- 2. BIO -->
+  <section class="py-20">
+    <Container>
+      <div class="max-w-prose">
+        <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+          Una traiettoria di trent&apos;anni.
+        </h2>
+        <div class="mt-10 space-y-6 text-lg text-charcoal leading-relaxed">
+          <p>
+            Sono nato a Corsico, in provincia di Milano, dove vivo ancora oggi. Ho cominciato a lavorare nelle telecomunicazioni nel 1993 &mdash; quando &laquo;Internet&raquo; era ancora una parola che si pronunciava lentamente, una sillaba alla volta. Ho passato i primi vent&apos;anni della mia carriera dentro le infrastrutture: routing, switching, VoIP, MPLS, integrazione di sistemi complessi per i grandi operatori italiani. Atitalia, Tecnonet, Dimension Data, Spindox &mdash; clienti come Vodafone, Skylogic, banche, operatori televisivi nazionali.
+          </p>
+          <p>
+            Quando il digitale ha smesso di essere un&apos;infrastruttura per diventare una cultura, ho seguito la corrente. Dal 2019 ho cofondato AV Media Trend, lavorando su digital marketing, comunicazione e formazione per le PMI. Dal 2021 il mio focus è diventato l&apos;intelligenza artificiale &mdash; non come tecnologia, ma come questione di metodo, etica, formazione.
+          </p>
+          <p>
+            Oggi guido Noscite e lavoro come AI Strategist per le piccole e medie imprese italiane. Progetto agenti AI, sviluppo MCP server, formo i team aziendali, affianco le direzioni nelle scelte di integrazione. Nel 2025 ho pubblicato due libri sull&apos;AI; nel 2026 ho lanciato Glitch, un manifesto sulla centralità dell&apos;umano nell&apos;era dell&apos;intelligenza artificiale.
+          </p>
+          <p>
+            Ho scelto di non essere &laquo;il consulente AI generico&raquo;. Ho scelto di lavorare con chi ha una PMI vera, con problemi veri, e ha bisogno di qualcuno che non venda magia &mdash; che proponga metodo. Le promesse di trasformazione digitale degli ultimi dieci anni hanno deluso troppe aziende. L&apos;AI non può ripetere quell&apos;errore.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- 3. TIMELINE -->
+  <section class="py-20 bg-sand">
+    <Container>
+      <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+        Trent&apos;anni in sei tappe.
+      </h2>
+      <p class="mt-4 italic text-stone">
+        La sintesi, non il CV completo.
+      </p>
+
+      <ol class="mt-16 max-w-3xl">
+        {timeline.map((t, i) => (
+          <li class="grid grid-cols-[auto_1fr] gap-6 md:gap-10 pb-12 last:pb-0">
+            <div class="relative flex justify-center">
+              <span class="relative z-10 block w-4 h-4 rounded-full bg-gold mt-2"></span>
+              {i !== timeline.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  class="absolute top-4 left-1/2 -translate-x-1/2 w-px bg-stone/30"
+                  style="height: calc(100% + 0rem);"
+                ></span>
+              )}
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-widest text-stone font-medium">
+                {t.period}
+              </p>
+              <h3 class="mt-2 text-lg md:text-xl font-heading font-semibold text-midnight leading-snug">
+                {t.role}
+              </h3>
+              <p class="mt-3 italic text-stone leading-relaxed">
+                {t.quote}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
+
+  <!-- 4. COSA FACCIO OGGI -->
+  <section class="py-20">
+    <Container>
+      <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+        Oggi.
+      </h2>
+      <p class="mt-4 text-lg text-stone max-w-2xl">
+        Quattro fronti aperti, una sola tesi: l&apos;AI è uno strumento, l&apos;umano è la regia.
+      </p>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 border-t border-stone/20">
+        {focus.map((f, i) => {
+          const borderClasses = [
+            'border-b border-stone/20 md:border-r',
+            'border-b border-stone/20',
+            'border-b md:border-b-0 border-stone/20 md:border-r',
+            '',
+          ];
+          return (
+            <div class={`p-8 md:p-12 ${borderClasses[i]}`}>
+              <h3 class="text-xs uppercase tracking-widest text-stone font-medium">
+                {f.label}
+              </h3>
+              <p class="mt-4 text-charcoal leading-relaxed">
+                {f.body}
+              </p>
+              <a
+                href={f.href}
+                class="mt-6 inline-flex items-center text-midnight font-medium hover:text-gold/80 transition-colors"
+              >
+                {f.cta} &rarr;
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    </Container>
+  </section>
+
+  <!-- 5. PRIVATO -->
+  <section class="py-16">
+    <Container>
+      <div class="max-w-prose">
+        <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+          Fuori dal lavoro.
+        </h2>
+        <div class="mt-10 space-y-6 text-lg text-charcoal leading-relaxed">
+          <p>
+            Sono padre e marito. Vivo a Corsico, in provincia di Milano, dove sono nato e cresciuto.
+          </p>
+          <p>
+            Suono la chitarra da sempre &mdash; Blues e Rock, quei brani che hanno fatto la storia e che continuo ad ascoltare quando ho bisogno di pensare. La musica e la moto sono i due posti dove il cervello si rimette in ordine: in sella non importa dove vai, ma con quale spirito ci arrivi.
+          </p>
+          <p>
+            Faccio volontariato dal 2015 con l&apos;O.d.v. La Speranza di Corsico &mdash; supporto a persone in stato di bisogno con pacchi alimentari e farmaceutici, in collaborazione con ActionAid. È la cosa di cui sono più orgoglioso, anche se non è quella di cui parlo di più.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- 6. GLITCH CALLOUT -->
+  <section class="py-20 bg-midnight text-cream">
+    <Container>
+      <div class="max-w-prose">
+        <h2 class="text-3xl md:text-4xl font-heading font-semibold leading-tight">
+          Perché ho creato Glitch.
+        </h2>
+        <p class="mt-8 text-lg leading-relaxed text-cream/90">
+          Ho scritto un manifesto perché credo che la prossima fase dell&apos;intelligenza artificiale non si giocherà sulla potenza dei modelli, ma sulla qualità con cui le organizzazioni umane sapranno integrarli. Glitch è il rumore in macchina che ricorda, ogni giorno, che dall&apos;altra parte c&apos;è una persona.
+        </p>
+        <a
+          href="/glitch"
+          class="mt-10 inline-flex items-center justify-center border-2 border-[#C724FF] text-cream rounded-full px-8 py-3 font-medium hover:bg-[#C724FF] hover:text-midnight transition-colors"
+        >
+          Leggi il manifesto Glitch &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- 7. DOVE TROVARMI -->
+  <section class="py-20">
+    <Container>
+      <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+        Dove trovarmi.
+      </h2>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-stone font-medium">
+            Professionale
+          </h3>
+          <ul class="mt-4 space-y-3 text-charcoal">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/sandrello/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-gold/80 transition-colors"
+              >
+                LinkedIn &rarr;
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-gold/80 transition-colors"
+              >
+                GitHub &rarr;
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:info@stefanoandrello.me"
+                class="hover:text-gold/80 transition-colors"
+              >
+                info@stefanoandrello.me
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-stone font-medium">
+            Pubblico
+          </h3>
+          <ul class="mt-4 space-y-3 text-charcoal">
+            <li>
+              <a
+                href="https://www.facebook.com/Stefano.Andrello.Noscite"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-gold/80 transition-colors"
+              >
+                Facebook &rarr;
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/stefano_andrello/"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-gold/80 transition-colors"
+              >
+                Instagram &rarr;
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs uppercase tracking-widest text-stone font-medium">
+            Libri
+          </h3>
+          <ul class="mt-4 space-y-3 text-charcoal">
+            <li>
+              <a href="/libri" class="hover:text-gold/80 transition-colors">
+                L&apos;Intelligenza Artificiale in Pratica &rarr;
+              </a>
+            </li>
+            <li>
+              <a href="/libri" class="hover:text-gold/80 transition-colors">
+                Il Futuro non è scritto &rarr;
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- 8. CTA FINALE -->
+  <section class="py-24">
+    <Container>
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+          Lavoriamo insieme.
+        </h2>
+        <p class="mt-6 text-lg text-stone leading-relaxed">
+          Se cerchi formazione AI seria, consulenza strategica, sviluppo di agenti AI o MCP server &mdash; o anche solo un&apos;opinione onesta su cosa l&apos;AI può davvero fare per la tua azienda &mdash; scrivimi.
+        </p>
+        <a
+          href="/contatti"
+          class="mt-10 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+        >
+          Scrivimi &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

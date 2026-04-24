@@ -5,6 +5,7 @@
 ## Pagine principali
 
 - [Home](https://stefanoandrello.me/): panoramica sintetica delle aree di attività di Stefano, calcolatore del costo nascosto, compliance EU AI Act.
+- [Chi sono](https://stefanoandrello.me/chi-sono): Chi è Stefano Andrello: 30 anni nelle telecomunicazioni e nel digitale, AI Strategist per PMI italiane, autore di due libri, founder di Noscite e Glitch.
 - [Percorso AI Ratio](https://stefanoandrello.me/percorso): pagina dedicata al metodo in tre tappe (perché/cosa/come), con moduli dettagliati e tabella compliance Art. 4.
 - [PRIMUS — Il risveglio consapevole](https://stefanoandrello.me/corsi/primus): workshop esperienziale di 4 ore. Risponde alla domanda "perché" occuparsi di AI ora.
 - [CONSILIUM — La bussola strategica](https://stefanoandrello.me/corsi/consilium): laboratorio direzionale di 7 ore per imprenditori e direzione. Risponde alla domanda "cosa" fare. Include certificazione Certified AI Strategist.
