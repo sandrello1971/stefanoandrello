@@ -1,0 +1,102 @@
+---
+import Container from '../Container.astro';
+---
+
+<section id="calcolatore" class="py-24 scroll-mt-24">
+  <Container>
+    <h2 class="text-4xl md:text-5xl font-heading font-semibold text-midnight leading-tight max-w-3xl">
+      Ogni giorno la tua azienda perde ore che non sa di perdere.
+    </h2>
+    <p class="mt-6 text-lg text-stone max-w-2xl leading-relaxed">
+      Riunioni che si potevano evitare. Email scritte tre volte. Documenti cercati per venti minuti. Report compilati a mano. Tutto questo ha un costo in euro &mdash; misurabile.
+    </p>
+
+    <div class="mt-12 bg-sand border border-stone/20 rounded-2xl p-8 md:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">Dipendenti con ruolo d&apos;ufficio</span>
+          <input
+            id="calc-dipendenti"
+            type="number"
+            min="1"
+            value="10"
+            class="mt-3 w-full bg-transparent border-0 border-b border-stone/40 pb-2 text-3xl font-heading text-midnight focus:outline-none focus:border-gold"
+          />
+        </label>
+
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">Costo medio orario lordo (&euro;)</span>
+          <input
+            id="calc-costo"
+            type="number"
+            min="1"
+            value="35"
+            class="mt-3 w-full bg-transparent border-0 border-b border-stone/40 pb-2 text-3xl font-heading text-midnight focus:outline-none focus:border-gold"
+          />
+        </label>
+
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">
+            Ore perse al giorno per persona &mdash; <span id="calc-ore-value" class="text-charcoal">1,5</span>
+          </span>
+          <input
+            id="calc-ore"
+            type="range"
+            min="0.5"
+            max="3"
+            step="0.5"
+            value="1.5"
+            class="mt-5 w-full accent-gold"
+          />
+        </label>
+      </div>
+
+      <div class="mt-12 border-t border-stone/20 pt-10">
+        <p
+          id="calc-output"
+          class="text-5xl md:text-6xl font-heading font-semibold text-midnight leading-none"
+        >
+          &euro; 115.500 / anno
+        </p>
+        <p class="mt-3 text-sm text-stone">
+          di costo nascosto annuale stimato
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <a
+          href="#percorso"
+          class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+        >
+          Vedi come ridurre questo costo &rarr;
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  const fmt = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 0 });
+  const oreFmt = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  const dip = document.getElementById('calc-dipendenti') as HTMLInputElement | null;
+  const costo = document.getElementById('calc-costo') as HTMLInputElement | null;
+  const ore = document.getElementById('calc-ore') as HTMLInputElement | null;
+  const oreVal = document.getElementById('calc-ore-value');
+  const out = document.getElementById('calc-output');
+
+  function update() {
+    if (!dip || !costo || !ore || !oreVal || !out) return;
+    const d = Math.max(0, Number(dip.value) || 0);
+    const c = Math.max(0, Number(costo.value) || 0);
+    const o = Number(ore.value) || 0;
+    const total = d * c * o * 220;
+    out.textContent = `€ ${fmt.format(total)} / anno`;
+    oreVal.textContent = oreFmt.format(o);
+  }
+
+  [dip, costo, ore].forEach((el) => {
+    el?.addEventListener('input', update);
+  });
+  update();
+</script>

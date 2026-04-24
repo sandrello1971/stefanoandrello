@@ -1,0 +1,42 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+
+const title = 'Pagina non trovata — Stefano Andrello';
+const description = 'La pagina che stai cercando non esiste o è stata spostata.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-32 md:py-40">
+    <Container>
+      <div class="max-w-2xl">
+        <p class="text-xs uppercase tracking-widest text-stone font-medium">
+          Errore 404
+        </p>
+        <h1 class="mt-6 text-5xl md:text-6xl font-heading font-semibold text-midnight leading-[1.1]">
+          Pagina non trovata.
+        </h1>
+        <p class="mt-8 text-lg text-stone leading-relaxed">
+          Mi spiace, qui non c&apos;è quello che cercavi. Forse il link è vecchio, o la pagina è stata spostata.
+        </p>
+
+        <div class="mt-12 flex flex-col sm:flex-row gap-4">
+          <a
+            href="/"
+            class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+          >
+            Torna alla home &rarr;
+          </a>
+          <a
+            href="/#percorso"
+            class="inline-flex items-center justify-center border border-midnight text-midnight rounded-full px-8 py-3 font-medium hover:bg-midnight hover:text-cream transition-colors"
+          >
+            Vedi il percorso AI Ratio &rarr;
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

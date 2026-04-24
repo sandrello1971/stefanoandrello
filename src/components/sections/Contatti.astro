@@ -1,0 +1,200 @@
+---
+import Container from '../Container.astro';
+---
+
+<section id="contatti" class="py-24 scroll-mt-24">
+  <Container>
+    <h2 class="text-4xl md:text-5xl font-heading font-semibold text-midnight leading-tight">
+      Parliamo del tuo progetto.
+    </h2>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+      <div>
+        <dl class="space-y-6 text-charcoal">
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-stone font-medium">Email</dt>
+            <dd class="mt-2 text-lg">
+              <a href="mailto:info@stefanoandrello.me" class="hover:text-gold transition-colors">
+                info@stefanoandrello.me
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-stone font-medium">Telefono</dt>
+            <dd class="mt-2 text-lg">
+              <a href="tel:+393476859801" class="hover:text-gold transition-colors">
+                +39 347 685 9801
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-stone font-medium">LinkedIn</dt>
+            <dd class="mt-2 text-lg">
+              <a
+                href="https://www.linkedin.com/in/sandrello/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-gold transition-colors"
+              >
+                /in/sandrello &rarr;
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-stone font-medium">Sede</dt>
+            <dd class="mt-2 text-lg">Corsico, MI</dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-widest text-stone font-medium">Tempi di risposta</dt>
+            <dd class="mt-2 text-lg">Risposta entro 24h lavorative</dd>
+          </div>
+        </dl>
+
+        <a
+          href="https://wa.me/393476859801"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-8 inline-flex items-center justify-center bg-[#25D366] text-white rounded-full px-6 py-3 font-medium hover:brightness-105 transition"
+        >
+          Scrivimi su WhatsApp
+        </a>
+      </div>
+
+      <form id="contact-form" class="space-y-6" novalidate>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+          <label>
+            Website
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+        </div>
+
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">Nome</span>
+          <input
+            type="text"
+            name="nome"
+            required
+            class="mt-2 w-full bg-transparent border-0 border-b border-stone/40 pb-2 text-lg text-charcoal focus:outline-none focus:border-gold"
+          />
+        </label>
+
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">Email</span>
+          <input
+            type="email"
+            name="email"
+            required
+            class="mt-2 w-full bg-transparent border-0 border-b border-stone/40 pb-2 text-lg text-charcoal focus:outline-none focus:border-gold"
+          />
+        </label>
+
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">
+            Qual &egrave; oggi il tuo problema principale con l&apos;AI in azienda?
+          </span>
+          <textarea
+            name="problema"
+            rows="1"
+            class="mt-2 w-full bg-transparent border-0 border-b border-stone/40 pb-2 text-lg text-charcoal focus:outline-none focus:border-gold resize-none"
+          ></textarea>
+        </label>
+
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">Tipo di richiesta</span>
+          <select
+            name="tipo"
+            id="contact-tipo"
+            class="mt-2 w-full bg-transparent border-0 border-b border-stone/40 pb-2 text-lg text-charcoal focus:outline-none focus:border-gold"
+          >
+            <option value="primus">Formazione PRIMUS</option>
+            <option value="consilium">Formazione CONSILIUM</option>
+            <option value="initium">Formazione INITIUM</option>
+            <option value="consulenza">Consulenza AI agentica/MCP</option>
+            <option value="altro">Altro</option>
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="text-xs uppercase tracking-widest text-stone font-medium">Messaggio</span>
+          <textarea
+            name="messaggio"
+            rows="5"
+            required
+            class="mt-2 w-full bg-transparent border border-stone/40 rounded-lg p-3 text-base text-charcoal focus:outline-none focus:border-gold resize-y"
+          ></textarea>
+        </label>
+
+        <div class="flex items-center gap-4">
+          <button
+            id="contact-submit"
+            type="submit"
+            class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+          >
+            Invia messaggio
+          </button>
+          <span id="contact-status" class="text-sm text-stone" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </Container>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const select = document.getElementById('contact-tipo') as HTMLSelectElement | null;
+  const status = document.getElementById('contact-status');
+  const submit = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+  if (select) {
+    const params = new URLSearchParams(window.location.search);
+    const corso = params.get('corso');
+    if (corso) {
+      const match = Array.from(select.options).find((o) => o.value === corso);
+      if (match) select.value = match.value;
+    }
+  }
+
+  if (form && status && submit) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const payload = {
+        nome: String(fd.get('nome') ?? ''),
+        email: String(fd.get('email') ?? ''),
+        problema: String(fd.get('problema') ?? ''),
+        tipoRichiesta: String(fd.get('tipo') ?? ''),
+        messaggio: String(fd.get('messaggio') ?? ''),
+        website: String(fd.get('website') ?? ''),
+      };
+
+      submit.disabled = true;
+      status.className = 'text-sm text-stone';
+      status.textContent = 'Invio in corso…';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          status.className = 'text-sm text-midnight';
+          status.textContent = 'Messaggio inviato. Ti rispondo entro 24 ore lavorative.';
+          form.reset();
+        } else {
+          status.className = 'text-sm text-red-700';
+          status.textContent =
+            data.error ||
+            'Qualcosa è andato storto. Riprova o scrivimi a info@stefanoandrello.me';
+        }
+      } catch {
+        status.className = 'text-sm text-red-700';
+        status.textContent =
+          'Errore di rete. Riprova o scrivimi a info@stefanoandrello.me';
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  }
+</script>

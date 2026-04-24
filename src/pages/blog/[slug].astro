@@ -1,0 +1,164 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true
+  );
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const data = post.data;
+
+const dateFormatter = new Intl.DateTimeFormat('it-IT', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const pubDateStr = dateFormatter.format(data.pubDate);
+const updatedStr = data.updatedDate ? dateFormatter.format(data.updatedDate) : null;
+
+const title = `${data.title} — Stefano Andrello`;
+const description = data.description;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.description,
+  datePublished: data.pubDate.toISOString(),
+  dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+  author: {
+    '@type': 'Person',
+    name: data.author,
+    url: 'https://stefanoandrello.me',
+  },
+  articleSection: data.category,
+  keywords: data.tags.join(', '),
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={data.heroImage ?? `/open-graph/blog/${post.id}.png`}
+>
+  <article class="py-20 md:py-28">
+    <Container>
+      <header class="max-w-3xl mx-auto">
+        <p class="text-xs uppercase tracking-widest text-midnight font-medium">
+          {data.category}
+        </p>
+        <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-midnight leading-tight">
+          {data.title}
+        </h1>
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-stone">
+          <time datetime={data.pubDate.toISOString()}>{pubDateStr}</time>
+          {data.readingTime && <span>{data.readingTime} min di lettura</span>}
+          <span>di {data.author}</span>
+        </div>
+      </header>
+
+      <div class="mt-16 max-w-prose mx-auto post-body text-lg text-charcoal leading-relaxed">
+        <Content />
+      </div>
+
+      <footer class="mt-20 max-w-prose mx-auto pt-10 border-t border-stone/20">
+        {data.tags.length > 0 && (
+          <ul class="flex flex-wrap gap-2">
+            {data.tags.map((tag) => (
+              <li class="border border-stone/40 rounded-full px-3 py-1 text-xs uppercase tracking-widest text-stone">
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
+        <p class="mt-8 text-sm text-stone">
+          Pubblicato il {pubDateStr}{updatedStr && ` · aggiornato il ${updatedStr}`}.
+        </p>
+        <a
+          href="/blog"
+          class="mt-6 inline-flex items-center text-midnight font-medium hover:text-gold transition-colors"
+        >
+          Tutti gli articoli &rarr;
+        </a>
+      </footer>
+    </Container>
+  </article>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+</BaseLayout>
+
+<style>
+  .post-body :global(h2) {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.875rem;
+    line-height: 1.25;
+    color: var(--color-midnight);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+  .post-body :global(h3) {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--color-midnight);
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .post-body :global(p) {
+    margin-bottom: 1.4rem;
+  }
+  .post-body :global(strong) {
+    color: var(--color-midnight);
+    font-weight: 600;
+  }
+  .post-body :global(a) {
+    color: var(--color-midnight);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-underline-offset: 3px;
+  }
+  .post-body :global(a:hover) {
+    color: var(--color-gold);
+  }
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    margin: 1.4rem 0;
+    padding-left: 1.5rem;
+  }
+  .post-body :global(ul) {
+    list-style: disc;
+  }
+  .post-body :global(ol) {
+    list-style: decimal;
+  }
+  .post-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .post-body :global(blockquote) {
+    border-left: 3px solid var(--color-gold);
+    padding-left: 1.25rem;
+    margin: 1.75rem 0;
+    font-style: italic;
+    color: var(--color-stone);
+  }
+  .post-body :global(code) {
+    background-color: var(--color-sand);
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.95em;
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import Container from '../Container.astro';
+
+const libri = [
+  {
+    titolo: 'Il Futuro non è scritto',
+    sottotitolo: 'Memorie di un’Intelligenza Artificiale',
+    descrizione:
+      'Un viaggio narrativo nel mondo dell’AI, raccontato in prima persona.',
+  },
+  {
+    titolo: 'L’Intelligenza Artificiale in Pratica',
+    sottotitolo: 'Guida critica per educatori e professionisti',
+    descrizione:
+      'Una guida pratica e critica all’AI per chi vuole usarla in modo consapevole.',
+  },
+];
+---
+
+<section class="py-24 bg-sand">
+  <Container>
+    <h2 class="text-4xl md:text-5xl font-heading font-semibold text-midnight leading-tight">
+      Due libri per capire l&apos;AI.
+    </h2>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+      {libri.map((libro) => (
+        <div>
+          <h3 class="text-2xl md:text-3xl font-heading font-semibold text-midnight leading-tight">
+            {libro.titolo}
+          </h3>
+          <p class="mt-3 italic text-stone">
+            {libro.sottotitolo}
+          </p>
+          <p class="mt-5 text-charcoal leading-relaxed">
+            {libro.descrizione}
+          </p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#"
+              class="inline-flex items-center text-midnight font-medium hover:text-gold transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Acquista su Amazon &rarr;
+            </a>
+            <a
+              href="#"
+              class="inline-flex items-center text-stone font-medium hover:text-midnight transition-colors"
+            >
+              Scarica il capitolo gratuito &rarr;
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

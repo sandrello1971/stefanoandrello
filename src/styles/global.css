@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #0B1F3A;
+  --color-cream: #F5F0E6;
+  --color-sand: #EDE4D2;
+  --color-gold: #C8923D;
+  --color-charcoal: #1F1F1F;
+  --color-stone: #6B6358;
+
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+  }
+}

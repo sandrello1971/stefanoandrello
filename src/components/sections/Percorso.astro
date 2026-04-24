@@ -1,0 +1,117 @@
+---
+import Container from '../Container.astro';
+
+interface Outcome {
+  label: string;
+  description: string;
+}
+
+interface Card {
+  numeral: string;
+  eyebrow: string;
+  title: string;
+  badge?: string;
+  audience: string;
+  description: string;
+  outcomes: Outcome[];
+}
+
+const cards: Card[] = [
+  {
+    numeral: 'I',
+    eyebrow: '4 ORE · WORKSHOP ESPERIENZIALE',
+    title: 'PRIMUS · Il risveglio consapevole',
+    audience:
+      'studenti e team aziendali che non hanno ancora capito perché l’AI li riguarda.',
+    description:
+      'PRIMUS risponde alla prima domanda: perché devo occuparmi di AI, e perché ora. In quattro ore scopriamo quanto tempo e quanti soldi oggi si perdono senza saperlo, e dove l’AI può fare davvero la differenza nel lavoro di tutti i giorni.',
+    outcomes: [
+      { label: 'Quanto mi costa?', description: 'Calcolatore delle ore perse ogni giorno.' },
+      { label: 'A che punto sono?', description: 'Radar su 6 aree chiave.' },
+      { label: 'Da dove parto?', description: 'Un prossimo passo concreto.' },
+    ],
+  },
+  {
+    numeral: 'II',
+    eyebrow: '7 ORE · LABORATORIO DIREZIONALE',
+    title: 'CONSILIUM · La bussola strategica',
+    badge: 'Certified AI Strategist',
+    audience: 'imprenditori, direttori e responsabili di PMI.',
+    description:
+      'CONSILIUM risponde alla seconda domanda: cosa devo fare, in concreto, nella mia azienda. È una giornata di lavoro in cui la direzione decide dove usare l’AI, con quali priorità e con quali regole. Si finalizzano tre progetti scelti, un piano a 90 giorni e le prime regole d’uso.',
+    outcomes: [
+      { label: 'Dove l’AI serve davvero', description: 'mappatura dei processi.' },
+      { label: 'Tre progetti concreti', description: 'responsabile, obiettivi, rischi.' },
+      { label: 'Regole e piano 90 giorni', description: 'policy operativa.' },
+    ],
+  },
+  {
+    numeral: 'III',
+    eyebrow: '20 ORE + 3H ESAME · CERTIFICAZIONE',
+    title: 'INITIUM · Le fondamenta operative',
+    badge: 'Certified AI Productivity User — Bronze · Silver · Gold',
+    audience: 'team aziendali, uso operativo quotidiano.',
+    description:
+      'INITIUM risponde alla terza domanda: come si usa davvero l’AI sul lavoro. I partecipanti imparano a parlare con l’AI in modo efficace, a usare più strumenti insieme e a trattare bene i dati aziendali. 70% pratica, 30% teoria.',
+    outcomes: [
+      { label: 'Chiedere bene all’AI', description: 'tecniche pratiche con casi reali.' },
+      { label: 'Usare più strumenti', description: 'Claude, ChatGPT, Perplexity, Copilot insieme.' },
+      { label: 'Usare l’AI in sicurezza', description: 'policy aziendali e conoscenza interna.' },
+    ],
+  },
+];
+---
+
+<section id="percorso" class="py-24 scroll-mt-24 bg-sand">
+  <Container>
+    <h2 class="text-4xl md:text-5xl font-heading font-semibold text-midnight leading-tight">
+      Un metodo in tre tappe.
+    </h2>
+    <p class="mt-6 text-lg text-stone max-w-2xl leading-relaxed">
+      Ogni tappa risponde a una sola domanda. Si entra dal primo scalino o si salta direttamente al livello giusto.
+    </p>
+
+    <div class="mt-16 space-y-10">
+      {cards.map((card) => (
+        <article class="bg-cream border border-stone/15 rounded-2xl p-8 md:p-12">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start">
+            <div class="md:col-span-1">
+              <div
+                class="font-heading font-bold text-gold/30 leading-none text-7xl md:text-8xl lg:text-9xl select-none"
+              >
+                {card.numeral}
+              </div>
+            </div>
+            <div class="md:col-span-4">
+              <p class="text-xs uppercase tracking-widest text-stone font-medium">
+                {card.eyebrow}
+              </p>
+              <h3 class="mt-3 text-3xl font-heading font-semibold text-midnight leading-tight">
+                {card.title}
+              </h3>
+              {card.badge && (
+                <span class="mt-4 inline-block border border-gold rounded-full px-3 py-1 text-xs uppercase tracking-wider text-charcoal">
+                  {card.badge}
+                </span>
+              )}
+              <p class="mt-5 italic text-stone">
+                Per chi &mdash; {card.audience}
+              </p>
+              <p class="mt-4 text-charcoal leading-relaxed">
+                {card.description}
+              </p>
+              <ul class="mt-8 space-y-3">
+                {card.outcomes.map((o) => (
+                  <li class="text-charcoal">
+                    <span class="font-semibold">{o.label}</span>
+                    <span class="text-stone"> &mdash; {o.description}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>

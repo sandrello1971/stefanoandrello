@@ -1,0 +1,180 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+
+export async function getStaticPaths() {
+  const corsi = await getCollection('corsi');
+  return corsi.map((corso) => ({
+    params: { slug: corso.data.slug },
+    props: { corso },
+  }));
+}
+
+const { corso } = Astro.props;
+const { Content } = await render(corso);
+const data = corso.data;
+
+const title = `${data.name} · ${data.latinName} — Stefano Andrello`;
+const description = `${data.tagline}. ${data.type} di ${data.hours} ore per ${data.forWho.toLowerCase()}.`;
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: `${data.name} — ${data.latinName}`,
+  description: data.fullDescription,
+  provider: {
+    '@type': 'Organization',
+    name: 'Noscite S.r.l.s.',
+    url: 'https://stefanoandrello.me',
+  },
+  educationalLevel: data.type,
+  timeRequired: `PT${data.hours}H`,
+};
+---
+
+<BaseLayout title={title} description={description} ogImage={`/open-graph/corsi/${data.slug}.png`}>
+  <section class="py-20 md:py-28">
+    <Container>
+      <p class="text-xs uppercase tracking-widest text-stone font-medium">
+        {data.hours} ore · {data.type}
+      </p>
+      <h1 class="mt-6 text-5xl md:text-7xl lg:text-8xl font-heading font-semibold text-midnight leading-[0.95]">
+        {data.name}
+      </h1>
+      <p class="mt-4 text-2xl md:text-3xl font-heading italic text-midnight/70">
+        {data.latinName}
+      </p>
+      <p class="mt-8 text-xl text-stone max-w-2xl leading-relaxed">
+        {data.tagline}.
+      </p>
+      {data.certification && (
+        <div class="mt-8">
+          <span class="inline-block border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+            {data.certification}
+          </span>
+        </div>
+      )}
+    </Container>
+  </section>
+
+  <section class="py-12 bg-sand">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-xs uppercase tracking-widest text-stone font-medium font-body">
+            Per chi
+          </h2>
+          <p class="mt-4 text-xl text-charcoal leading-relaxed">
+            {data.forWho}.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-xs uppercase tracking-widest text-stone font-medium font-body">
+            La domanda a cui risponde
+          </h2>
+          <p class="mt-4 text-3xl md:text-4xl font-heading font-semibold text-midnight italic">
+            {data.question}
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-20">
+    <Container>
+      <div class="max-w-3xl mx-auto course-body text-lg text-charcoal leading-relaxed">
+        <Content />
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-20 bg-sand">
+    <Container>
+      <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight">
+        Moduli del corso
+      </h2>
+      <ol class="mt-12 space-y-8">
+        {data.modules.map((mod, i) => (
+          <li class="grid grid-cols-[auto_1fr] gap-6 md:gap-10 border-b border-stone/20 pb-8 last:border-0">
+            <div class="font-heading text-4xl md:text-5xl font-semibold text-gold/50 leading-none w-12 md:w-16">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            <div>
+              <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <h3 class="text-xl md:text-2xl font-heading font-semibold text-midnight">
+                  {mod.title}
+                </h3>
+                <span class="text-xs uppercase tracking-widest text-stone font-medium">
+                  {mod.hours} {mod.hours === 1 ? 'ora' : 'ore'}
+                </span>
+              </div>
+              <p class="mt-3 text-charcoal leading-relaxed">
+                {mod.description}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
+
+  <section class="py-20 bg-midnight text-cream">
+    <Container>
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-5xl font-heading font-semibold leading-tight">
+          Pronto a iniziare con {data.name}?
+        </h2>
+        <p class="mt-6 text-lg text-cream/80">
+          Raccontami in breve la tua situazione. Ti rispondo con una proposta concreta entro 24 ore lavorative.
+        </p>
+        <a
+          href={`/?corso=${data.slug}#contatti`}
+          class="mt-10 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+        >
+          Parliamo di {data.name} &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+</BaseLayout>
+
+<style>
+  .course-body :global(h2) {
+    font-size: 1.875rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-midnight);
+  }
+  .course-body :global(h3) {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-midnight);
+  }
+  .course-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+  .course-body :global(ul),
+  .course-body :global(ol) {
+    margin: 1.25rem 0;
+    padding-left: 1.5rem;
+  }
+  .course-body :global(ul) {
+    list-style: disc;
+  }
+  .course-body :global(ol) {
+    list-style: decimal;
+  }
+  .course-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .course-body :global(strong) {
+    color: var(--color-midnight);
+    font-weight: 600;
+  }
+</style>

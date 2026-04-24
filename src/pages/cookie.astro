@@ -1,0 +1,38 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+
+const title = 'Cookie Policy — Stefano Andrello';
+const description =
+  'Informativa sull\'uso dei cookie e delle tecnologie di tracciamento del sito stefanoandrello.me.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-24 md:py-32">
+    <Container>
+      <div class="max-w-3xl">
+        <p class="text-xs uppercase tracking-widest text-stone font-medium">
+          Cookie
+        </p>
+        <h1 class="mt-6 text-4xl md:text-5xl font-heading font-semibold text-midnight leading-[1.1]">
+          Cookie Policy
+        </h1>
+        <p class="mt-8 text-lg text-stone leading-relaxed">
+          In aggiornamento. L&apos;informativa completa sull&apos;uso dei cookie sarà pubblicata a breve.
+        </p>
+        <p class="mt-6 text-charcoal leading-relaxed">
+          Questo sito non utilizza attualmente cookie di profilazione. Per qualsiasi domanda sull&apos;uso dei cookie o delle tecnologie di tracciamento, scrivi a <a href="mailto:info@stefanoandrello.me" class="text-midnight underline decoration-gold underline-offset-4 hover:text-midnight/80">info@stefanoandrello.me</a>.
+        </p>
+
+        <a
+          href="/#contatti"
+          class="mt-12 inline-flex items-center text-midnight font-medium hover:text-midnight/70 transition-colors"
+        >
+          Contattami &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

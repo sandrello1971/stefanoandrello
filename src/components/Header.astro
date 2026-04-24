@@ -1,0 +1,75 @@
+---
+const links = [
+  { href: '/percorso', label: 'Percorso' },
+  { href: '/specializzazioni', label: 'Specializzazioni' },
+  { href: '/libri', label: 'Libri' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contatti', label: 'Contatti' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-cream border-b border-stone/20">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-5">
+    <a
+      href="/"
+      class="font-heading font-semibold text-lg text-midnight tracking-tight"
+    >
+      Stefano Andrello
+    </a>
+    <ul class="hidden md:flex items-center gap-8 text-sm text-charcoal">
+      <li>
+        <a href="/glitch" class="manifesto-link" aria-label="Manifesto Glitch">
+          <span>MANIFESTO</span>
+        </a>
+      </li>
+      {links.map(({ href, label }) => (
+        <li>
+          <a href={href} class="hover:text-midnight transition-colors">
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .manifesto-link {
+    position: relative;
+    display: inline-block;
+    padding-left: 0.75rem;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #C724FF;
+    text-decoration: none;
+    transition: filter 0.15s ease;
+  }
+
+  .manifesto-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 2px;
+    background: linear-gradient(180deg, #C724FF 0%, #00E5FF 100%);
+  }
+
+  .manifesto-link span {
+    display: inline-block;
+    transition: transform 0.12s ease, text-shadow 0.12s ease;
+  }
+
+  .manifesto-link:hover span {
+    transform: skewX(-4deg);
+    text-shadow: -1px 0 #C724FF, 1px 0 #00E5FF;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .manifesto-link span { transition: none; }
+    .manifesto-link:hover span { transform: none; text-shadow: none; }
+  }
+</style>

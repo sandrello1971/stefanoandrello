@@ -1,0 +1,134 @@
+---
+export const prerender = true;
+
+import GlitchLayout from '../layouts/GlitchLayout.astro';
+import GlitchHeader from '../components/glitch/GlitchHeader.astro';
+import GlitchFooter from '../components/glitch/GlitchFooter.astro';
+import { manifestoParagraphs } from '../data/glitch-manifesto';
+---
+
+<GlitchLayout>
+  <GlitchHeader />
+
+  <main class="px-6">
+    <article class="mx-auto py-32 md:py-40" style="max-width: 700px;">
+      <p class="manifesto-eyebrow">MANIFESTO &mdash; APRILE 2026</p>
+
+      <h1 class="manifesto-title" data-text="Il glitch è umano.">
+        Il glitch è umano.
+      </h1>
+
+      <hr class="manifesto-rule" />
+
+      <div class="manifesto-body">
+        {manifestoParagraphs.map((p) => <p set:html={p} />)}
+      </div>
+
+      <p class="manifesto-sign">&mdash; GLITCH</p>
+    </article>
+  </main>
+
+  <GlitchFooter />
+</GlitchLayout>
+
+<style>
+  .manifesto-eyebrow {
+    font-family: var(--glitch-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--glitch-magenta);
+    margin: 0;
+  }
+
+  .manifesto-title {
+    position: relative;
+    display: block;
+    margin: 2rem 0 0;
+    font-family: var(--glitch-font-body);
+    font-weight: 700;
+    font-size: 3.75rem;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    animation: glitch-shift 7s infinite;
+  }
+
+  @media (min-width: 768px) {
+    .manifesto-title {
+      font-size: 6rem;
+    }
+  }
+
+  .manifesto-title::before,
+  .manifesto-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .manifesto-title::before {
+    color: var(--glitch-magenta);
+    transform: translate(-2px, -2px);
+  }
+
+  .manifesto-title::after {
+    color: var(--glitch-cyan);
+    transform: translate(2px, 2px);
+  }
+
+  .manifesto-rule {
+    width: 80px;
+    border: 0;
+    border-top: 1px solid var(--glitch-magenta);
+    margin: 2.5rem 0;
+  }
+
+  .manifesto-body {
+    font-family: var(--glitch-font-body);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--glitch-fg-soft);
+  }
+
+  @media (min-width: 768px) {
+    .manifesto-body {
+      font-size: 1.25rem;
+    }
+  }
+
+  .manifesto-body :global(p) {
+    margin-top: 1.5rem;
+  }
+
+  .manifesto-body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .manifesto-body :global(strong) {
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  .manifesto-body :global(em) {
+    font-family: var(--glitch-font-mono);
+    font-style: italic;
+    color: var(--glitch-magenta);
+  }
+
+  .manifesto-sign {
+    font-family: var(--glitch-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    text-align: right;
+    color: var(--glitch-muted);
+    margin-top: 4rem;
+    font-size: 0.875rem;
+  }
+</style>

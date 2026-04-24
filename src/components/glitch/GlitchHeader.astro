@@ -1,0 +1,82 @@
+---
+---
+
+<header class="sticky top-0 z-50 backdrop-blur" style="background: rgba(10,10,11,0.8); border-bottom: 1px solid var(--glitch-border);">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between px-6 py-5">
+    <a href="/glitch" class="glitch-logo" data-text="GLITCH" aria-label="Glitch — home">
+      GLITCH
+    </a>
+    <a href="/" class="glitch-back">
+      &larr; Stefano Andrello
+    </a>
+  </nav>
+</header>
+
+<style>
+  .glitch-logo {
+    position: relative;
+    display: inline-block;
+    font-family: var(--glitch-font-mono);
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .glitch-logo::before,
+  .glitch-logo::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.12s ease;
+    pointer-events: none;
+  }
+
+  .glitch-logo::before { color: var(--glitch-magenta); }
+  .glitch-logo::after  { color: var(--glitch-cyan); }
+
+  .glitch-logo:hover::before {
+    opacity: 0.9;
+    animation: logo-glitch-mag 0.45s steps(6) infinite;
+  }
+  .glitch-logo:hover::after {
+    opacity: 0.9;
+    animation: logo-glitch-cy 0.45s steps(6) infinite;
+  }
+
+  @keyframes logo-glitch-mag {
+    0%   { transform: translate(-2px, -1px); clip-path: inset(0 0 0 0); }
+    20%  { transform: translate(-3px, 1px); clip-path: inset(10% 0 60% 0); }
+    40%  { transform: translate(-1px, -2px); clip-path: inset(55% 0 10% 0); }
+    60%  { transform: translate(-3px, 0); clip-path: inset(30% 0 30% 0); }
+    80%  { transform: translate(-2px, 2px); clip-path: inset(0 0 70% 0); }
+    100% { transform: translate(-2px, -1px); clip-path: inset(0 0 0 0); }
+  }
+
+  @keyframes logo-glitch-cy {
+    0%   { transform: translate(2px, 1px); clip-path: inset(0 0 0 0); }
+    20%  { transform: translate(3px, -1px); clip-path: inset(20% 0 50% 0); }
+    40%  { transform: translate(1px, 2px); clip-path: inset(60% 0 5% 0); }
+    60%  { transform: translate(3px, 0); clip-path: inset(10% 0 50% 0); }
+    80%  { transform: translate(2px, -2px); clip-path: inset(40% 0 20% 0); }
+    100% { transform: translate(2px, 1px); clip-path: inset(0 0 0 0); }
+  }
+
+  .glitch-back {
+    font-family: var(--glitch-font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--glitch-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .glitch-back:hover {
+    color: #FFFFFF;
+  }
+</style>

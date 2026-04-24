@@ -1,0 +1,54 @@
+---
+import Container from '../Container.astro';
+
+const rows = [
+  { corso: 'PRIMUS', ore: '4h', ct: '○', ca: '○', pc: '○', cn: '○' },
+  { corso: 'CONSILIUM', ore: '7h', ct: '◐', ca: '●', pc: '●', cn: '●' },
+  { corso: 'INITIUM', ore: '20h', ct: '●', ca: '●', pc: '●', cn: '●' },
+];
+---
+
+<section class="py-24 bg-midnight text-cream">
+  <Container>
+    <h2 class="text-4xl md:text-5xl font-heading font-semibold leading-tight max-w-3xl">
+      Corsi allineati all&apos;Art. 4 del Regolamento UE 2024/1689.
+    </h2>
+    <p class="mt-6 text-lg text-cream/80 max-w-2xl leading-relaxed">
+      L&apos;AI Literacy dei dipendenti non &egrave; pi&ugrave; una scelta. Ecco come i tre corsi coprono le quattro aree richieste.
+    </p>
+
+    <div class="mt-12 overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="border-b border-cream/20 text-xs uppercase tracking-widest text-cream/70">
+            <th class="py-4 pr-4 font-medium">Corso</th>
+            <th class="py-4 px-4 font-medium">Ore</th>
+            <th class="py-4 px-4 font-medium">CT <span class="hidden md:inline text-cream/50 normal-case tracking-normal">(Comprensione Tecnologica)</span></th>
+            <th class="py-4 px-4 font-medium">CA <span class="hidden md:inline text-cream/50 normal-case tracking-normal">(Conoscenza Applicativa)</span></th>
+            <th class="py-4 px-4 font-medium">PC <span class="hidden md:inline text-cream/50 normal-case tracking-normal">(Pensiero Critico)</span></th>
+            <th class="py-4 px-4 font-medium">CN <span class="hidden md:inline text-cream/50 normal-case tracking-normal">(Conformit&agrave; Normativa)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr class="border-b border-cream/10">
+              <td class="py-5 pr-4 font-heading text-lg">{r.corso}</td>
+              <td class="py-5 px-4 text-cream/80">{r.ore}</td>
+              <td class="py-5 px-4 text-xl" aria-label="Comprensione Tecnologica">{r.ct}</td>
+              <td class="py-5 px-4 text-xl" aria-label="Conoscenza Applicativa">{r.ca}</td>
+              <td class="py-5 px-4 text-xl" aria-label="Pensiero Critico">{r.pc}</td>
+              <td class="py-5 px-4 text-xl" aria-label="Conformit&agrave; Normativa">{r.cn}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-8 text-sm text-cream/80">
+      INITIUM &egrave; il corso di compliance primaria per l&apos;Art. 4.
+    </p>
+    <p class="mt-2 text-xs text-cream/60">
+      &#9679; piena &middot; &#9680; parziale &middot; &#9675; pre-compliance
+    </p>
+  </Container>
+</section>

@@ -1,0 +1,144 @@
+---
+type SchemaType =
+  | 'WebSite'
+  | 'Person'
+  | 'Article'
+  | 'Course'
+  | 'Organization'
+  | 'FAQPage';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  schemaType?: SchemaType;
+  faq?: FaqItem[];
+}
+
+const {
+  title,
+  description,
+  ogImage,
+  schemaType = 'WebSite',
+  faq,
+} = Astro.props;
+
+const siteUrl = 'https://stefanoandrello.me';
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Noscite S.r.l.s.',
+  url: siteUrl,
+  taxID: '14209320960',
+  vatID: 'IT14209320960',
+  founder: {
+    '@type': 'Person',
+    name: 'Stefano Andrello',
+    url: siteUrl,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Corsico',
+    addressRegion: 'MI',
+    addressCountry: 'IT',
+  },
+};
+
+const faqSchema = (items: FaqItem[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+});
+
+const baseSchema: Record<SchemaType, Record<string, unknown>> = {
+  WebSite: {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: title,
+    description,
+    url: siteUrl,
+  },
+  Person: {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Stefano Andrello',
+    jobTitle: 'AI Strategist',
+    url: siteUrl,
+    sameAs: ['https://www.linkedin.com/in/sandrello/'],
+  },
+  Article: {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    url: canonical,
+    author: {
+      '@type': 'Person',
+      name: 'Stefano Andrello',
+      url: siteUrl,
+    },
+  },
+  Course: {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: title,
+    description,
+    url: canonical,
+    provider: {
+      '@type': 'Organization',
+      name: 'Noscite S.r.l.s.',
+      url: siteUrl,
+    },
+  },
+  Organization: organizationSchema,
+  FAQPage: faq
+    ? faqSchema(faq)
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [],
+      },
+};
+
+const schemas: Record<string, unknown>[] = [baseSchema[schemaType]];
+if (faq && schemaType !== 'FAQPage') {
+  schemas.push(faqSchema(faq));
+}
+
+const ogImageUrl = ogImage
+  ? new URL(ogImage, siteUrl).toString()
+  : undefined;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+
+<meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+
+{schemas.map((s) => (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(s)} />
+))}

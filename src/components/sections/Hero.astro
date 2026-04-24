@@ -1,0 +1,57 @@
+---
+import Container from '../Container.astro';
+---
+
+<section class="py-24 md:py-32">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-3">
+        <p class="text-xs uppercase tracking-widest text-stone font-medium">
+          Stefano Andrello
+        </p>
+        <h1 class="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-semibold leading-[1.1] text-midnight">
+          AI Strategist per PMI italiane.
+        </h1>
+        <p class="mt-8 text-xl text-stone leading-relaxed max-w-2xl">
+          Formazione conforme EU AI Act, consulenza strategica, sviluppo di agenti AI e MCP server. Aiuto le aziende italiane a integrare l&apos;intelligenza artificiale con metodo, non con annunci.
+        </p>
+
+        <ul class="mt-10 flex flex-wrap gap-3">
+          <li class="border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+            Strategist
+          </li>
+          <li class="border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+            AI Agentica &amp; MCP
+          </li>
+          <li class="border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+            Speaker
+          </li>
+          <li class="border border-gold rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-charcoal">
+            Autore (2 libri)
+          </li>
+        </ul>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a
+            href="#percorso"
+            class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+          >
+            Vedi il percorso AI Ratio &rarr;
+          </a>
+          <a
+            href="#calcolatore"
+            class="inline-flex items-center justify-center border border-midnight text-midnight rounded-full px-8 py-3 font-medium hover:bg-midnight hover:text-cream transition-colors"
+          >
+            Calcola quanto ti costa oggi
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 flex justify-center lg:justify-end">
+        <div class="bg-stone/20 aspect-square w-full max-w-[360px] rounded-lg flex items-center justify-center">
+          <span class="text-stone text-sm">Foto di Stefano</span>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

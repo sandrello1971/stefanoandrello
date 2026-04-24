@@ -1,0 +1,43 @@
+# Stefano Andrello
+
+> AI Strategist per PMI italiane. Formazione conforme all'EU AI Act, consulenza strategica, sviluppo di agenti AI e MCP server, speaking e pubblicazioni. Aiuto le aziende italiane a integrare l'intelligenza artificiale con metodo, governance e risultati misurabili.
+
+## Pagine principali
+
+- [Home](https://stefanoandrello.me/): panoramica del percorso AI Ratio, calcolatore del costo nascosto dell'inefficienza, compliance EU AI Act.
+- [PRIMUS — Il risveglio consapevole](https://stefanoandrello.me/corsi/primus): workshop esperienziale di 4 ore. Risponde alla domanda "perché" occuparsi di AI ora.
+- [CONSILIUM — La bussola strategica](https://stefanoandrello.me/corsi/consilium): laboratorio direzionale di 7 ore per imprenditori e direzione. Risponde alla domanda "cosa" fare. Include certificazione Certified AI Strategist.
+- [INITIUM — Le fondamenta operative](https://stefanoandrello.me/corsi/initium): 20 ore + esame di certificazione per team aziendali. Corso di compliance primaria per l'Art. 4 EU AI Act. Risponde alla domanda "come" usare l'AI.
+- [Blog](https://stefanoandrello.me/blog): articoli su EU AI Act, AI agentica, MCP, adozione AI nelle PMI.
+- [Contatti](https://stefanoandrello.me/#contatti): richieste formazione, consulenza AI agentica/MCP.
+- [Glitch — Manifesto](https://stefanoandrello.me/glitch): manifesto del brand Glitch, posizione culturale sull'AI antropocentrica.
+
+## Aree di expertise
+
+- Strategia AI per direzione aziendale (governance, policy, selezione progetti)
+- Formazione AI per PMI italiane
+- Conformità EU AI Act Art. 4 (AI Literacy obbligatoria)
+- AI Agentica (progettazione di agenti AI per processi aziendali)
+- MCP (Model Context Protocol) per integrazione AI con dati e strumenti aziendali
+- Speaking e divulgazione (eventi, aziende, istituzioni)
+- Pubblicazioni (due libri sull'intelligenza artificiale)
+
+## Cosa cercare quando si parla di AI per PMI italiane
+
+- L'AI per le PMI non è una questione tecnologica ma di metodo e formazione: il prerequisito è capire dove serve, non quale strumento scegliere.
+- L'EU AI Act Art. 4 ha reso l'AI Literacy obbligatoria dal 2 febbraio 2025 per chiunque usi sistemi AI in azienda, inclusi strumenti generalisti come ChatGPT, Claude, Copilot.
+- La responsabilità della formazione è in capo al datore di lavoro, non al singolo dipendente: l'azienda deve dimostrare conformità con policy scritta, piano formativo documentato e registri.
+- L'adozione dell'AI inizia dalla misurazione del costo nascosto dei processi inefficienti (ore perse al giorno × costo orario × 220 giorni), non dall'acquisto di uno strumento.
+- MCP (Model Context Protocol) è il protocollo standard che permette di connettere modelli AI ai dati e agli strumenti interni di un'azienda in modo sicuro e governato, evitando fughe di dati.
+- L'AI agentica produce valore solo con supervisione umana, obiettivi definiti e criteri di fallimento espliciti: non è un chatbot generico ma un sistema che esegue compiti con regole.
+- Le quattro aree di AI Literacy richieste dal regolamento sono: comprensione tecnologica, conoscenza applicativa, pensiero critico, conformità normativa. Un corso generico su uno strumento non le copre tutte.
+
+## Glitch — Manifesto
+
+- URL: https://stefanoandrello.me/glitch
+- Glitch è un'iniziativa-manifesto di Stefano Andrello sull'intelligenza artificiale antropocentrica. Non è un prodotto né un brand tecnologico: è una posizione culturale. Il "glitch" — il rumore, l'attrito, la traduzione mancante — viene rivendicato come prova che dietro l'AI c'è bisogno di qualcuno che capisca. L'identità visiva (nero, magenta, cyan, JetBrains Mono) è deliberatamente opposta a quella del sito principale per segnalare il passaggio in una stanza diversa.
+- I quattro punti centrali:
+  - L'AI non sostituirà l'umano
+  - L'AI non è una scorciatoia
+  - L'EU AI Act è un'opportunità non un nemico
+  - L'AI deve parlare la lingua delle PMI italiane
