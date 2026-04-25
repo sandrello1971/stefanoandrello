@@ -1,6 +1,6 @@
 {
-  "name": "Stefano Andrello",
-  "short_name": "S. Andrello",
+  "name": "MyWebSite",
+  "short_name": "MySite",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,8 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#0B1F3A",
-  "background_color": "#F5F0E6",
-  "display": "standalone",
-  "start_url": "/"
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
 }
