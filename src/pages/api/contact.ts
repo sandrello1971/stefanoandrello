@@ -5,8 +5,10 @@ const tipoLabels: Record<string, string> = {
   primus: 'Formazione PRIMUS (4h)',
   consilium: 'Formazione CONSILIUM (7h)',
   initium: 'Formazione INITIUM (20h)',
-  'consulenza-agentica': 'Consulenza AI agentica',
-  mcp: 'Sviluppo MCP server',
+  structura: 'Formazione STRUCTURA (Second Brain)',
+  'ai-agents-mcp': 'Formazione AI AGENTS & MCP',
+  'consulenza-agentica': 'Consulenza progettazione AI agentica EU AI Act',
+  mcp: 'Sviluppo MCP server custom',
   speaking: 'Speaking / eventi',
   altro: 'Altro',
 };

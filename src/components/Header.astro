@@ -16,26 +16,43 @@ const links = [
     >
       Stefano Andrello
     </a>
-    <ul class="hidden md:flex items-center gap-8 text-sm text-charcoal">
-      <li>
-        <a href="/glitch" class="manifesto-link" aria-label="Manifesto Glitch">
-          <img
-            src="/img/glitch/glitch-logo.png"
-            alt=""
-            height="28"
-            class="inline-block h-5 md:h-7 w-auto mr-2 align-middle"
-          />
-          <span>MANIFESTO</span>
-        </a>
-      </li>
-      {links.map(({ href, label }) => (
+    <div class="flex items-center">
+      <ul class="hidden md:flex items-center gap-8 text-sm text-charcoal">
         <li>
-          <a href={href} class="hover:text-midnight transition-colors">
-            {label}
+          <a href="/glitch" class="manifesto-link" aria-label="Manifesto Glitch">
+            <img
+              src="/img/glitch/glitch-logo.png"
+              alt=""
+              height="28"
+              class="inline-block h-5 md:h-7 w-auto mr-2 align-middle"
+            />
+            <span>MANIFESTO</span>
           </a>
         </li>
-      ))}
-    </ul>
+        {links.map(({ href, label }) => (
+          <li>
+            <a href={href} class="hover:text-midnight transition-colors">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <span class="hidden md:inline-block w-px h-5 bg-stone/20 mx-3" aria-hidden="true"></span>
+      <a
+        href="https://atheneum.noscite.it/learn/login"
+        target="_blank"
+        rel="noopener"
+        aria-label="Atheneum — Area Studenti"
+        title="Atheneum — Area Studenti"
+        class="hidden md:flex items-center text-stone hover:text-midnight transition-colors duration-200"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+          <path d="M22 10v6"/>
+          <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+        </svg>
+      </a>
+    </div>
   </nav>
 </header>
 

@@ -2,6 +2,19 @@
 
 > AI Strategist per PMI italiane. Formazione conforme all'EU AI Act, consulenza strategica, sviluppo di agenti AI e MCP server, speaking e pubblicazioni. Aiuto le aziende italiane a integrare l'intelligenza artificiale con metodo, governance e risultati misurabili.
 
+## Piattaforma formativa
+
+I corsi del Percorso AI Ratio (PRIMUS, CONSILIUM, INITIUM, STRUCTURA, AI AGENTS & MCP) vengono erogati su Atheneum Noscite, piattaforma LMS proprietaria sviluppata da Stefano Andrello.
+
+- Sito Atheneum: https://atheneum.noscite.it
+- Demo gratuita libera (senza registrazione): https://atheneum.noscite.it/learn/demo
+- Area studenti / Login: https://atheneum.noscite.it/learn/login
+
+Note:
+- L'iscrizione ai corsi avviene tramite contatto diretto via stefanoandrello.me/contatti, non self-service.
+- La demo è invece libera e accessibile senza email o registrazione.
+- I corsi includono modulistica didattica, quiz di valutazione, certificazione finale, knowledge base personale, video lezioni con ricerca semantica.
+
 ## Pagine principali
 
 - [Home](https://stefanoandrello.me/): panoramica sintetica delle aree di attività di Stefano, calcolatore del costo nascosto, compliance EU AI Act.

@@ -160,8 +160,10 @@ const description =
               <option value="primus">Formazione PRIMUS (4h)</option>
               <option value="consilium">Formazione CONSILIUM (7h)</option>
               <option value="initium">Formazione INITIUM (20h)</option>
-              <option value="consulenza-agentica">Consulenza AI agentica</option>
-              <option value="mcp">Sviluppo MCP server</option>
+              <option value="structura">Formazione STRUCTURA (Second Brain)</option>
+              <option value="ai-agents-mcp">Formazione AI AGENTS &amp; MCP</option>
+              <option value="consulenza-agentica">Consulenza progettazione AI agentica EU AI Act</option>
+              <option value="mcp">Sviluppo MCP server custom</option>
               <option value="speaking">Speaking / eventi</option>
               <option value="altro">Altro</option>
             </select>
@@ -205,9 +207,9 @@ const description =
 
   if (select) {
     const params = new URLSearchParams(window.location.search);
-    const corso = params.get('corso');
-    if (corso) {
-      const match = Array.from(select.options).find((o) => o.value === corso);
+    const requested = params.get('corso') ?? params.get('tipo');
+    if (requested) {
+      const match = Array.from(select.options).find((o) => o.value === requested);
       if (match) select.value = match.value;
     }
   }

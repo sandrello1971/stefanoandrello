@@ -134,8 +134,25 @@ const courseSchema = {
           href={`/contatti?corso=${data.slug}`}
           class="mt-10 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
         >
-          Parliamo di {data.name} &rarr;
+          Parlami di {data.name} &rarr;
         </a>
+
+        <div class="mt-10 max-w-prose mx-auto text-center">
+          <p class="text-base text-cream/80 leading-relaxed">
+            Vuoi vedere come funziona la piattaforma prima di scrivere?
+          </p>
+          <a
+            href="https://atheneum.noscite.it/learn/demo"
+            target="_blank"
+            rel="noopener"
+            class="mt-3 inline-block text-cream underline decoration-gold/60 underline-offset-4 decoration-2 hover:decoration-gold transition-colors text-base"
+          >
+            Prova la demo gratuita di Atheneum &rarr;
+          </a>
+          <p class="mt-3 text-xs italic text-cream/60">
+            L&apos;iscrizione al corso completo passa da una breve conversazione con me. La demo è libera e gratuita.
+          </p>
+        </div>
       </div>
     </Container>
   </section>

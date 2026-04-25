@@ -1,10 +1,22 @@
 ---
 import Container from '../Container.astro';
 
-const rows = [
-  { corso: 'PRIMUS', ore: '4h', ct: '○', ca: '○', pc: '○', cn: '○' },
-  { corso: 'CONSILIUM', ore: '7h', ct: '◐', ca: '●', pc: '●', cn: '●' },
-  { corso: 'INITIUM', ore: '20h', ct: '●', ca: '●', pc: '●', cn: '●' },
+interface Row {
+  corso: string;
+  ore: string;
+  ruolo: string;
+  ct: string;
+  ca: string;
+  pc: string;
+  cn: string;
+}
+
+const rows: Row[] = [
+  { corso: 'PRIMUS', ore: '4h', ruolo: 'Awareness', ct: '◎', ca: '◑', pc: '◑', cn: '–' },
+  { corso: 'CONSILIUM', ore: '7h', ruolo: 'Governance direzionale', ct: '◑', ca: '✓', pc: '✓', cn: '✓' },
+  { corso: 'INITIUM', ore: '20h + esame', ruolo: 'Compliance primaria', ct: '✓', ca: '✓', pc: '✓', cn: '✓' },
+  { corso: 'STRUCTURA', ore: '24h', ruolo: 'Governance documentale', ct: '✓', ca: '✓', pc: '◑', cn: '✓' },
+  { corso: 'AI AGENTS & MCP', ore: '9h', ruolo: 'Sistemi agentici', ct: '✓', ca: '✓', pc: '✓', cn: '✓' },
 ];
 ---
 
@@ -14,7 +26,7 @@ const rows = [
       Corsi allineati all&apos;Art. 4 del Regolamento UE 2024/1689.
     </h2>
     <p class="mt-6 text-lg text-cream/80 max-w-2xl leading-relaxed">
-      L&apos;AI Literacy dei dipendenti non &egrave; pi&ugrave; una scelta. Ecco come i tre corsi coprono le quattro aree richieste.
+      L&apos;AI Literacy dei dipendenti non &egrave; pi&ugrave; una scelta. Ecco come i corsi del portfolio coprono le quattro aree richieste.
     </p>
 
     <div class="mt-12 overflow-x-auto">
@@ -23,6 +35,7 @@ const rows = [
           <tr class="border-b border-cream/20 text-xs uppercase tracking-widest text-cream/70">
             <th class="py-4 pr-4 font-medium">Corso</th>
             <th class="py-4 px-4 font-medium">Ore</th>
+            <th class="py-4 px-4 font-medium">Ruolo Art. 4</th>
             <th class="py-4 px-4 font-medium">CT <span class="hidden md:inline text-cream/50 normal-case tracking-normal">(Comprensione Tecnologica)</span></th>
             <th class="py-4 px-4 font-medium">CA <span class="hidden md:inline text-cream/50 normal-case tracking-normal">(Conoscenza Applicativa)</span></th>
             <th class="py-4 px-4 font-medium">PC <span class="hidden md:inline text-cream/50 normal-case tracking-normal">(Pensiero Critico)</span></th>
@@ -32,8 +45,9 @@ const rows = [
         <tbody>
           {rows.map((r) => (
             <tr class="border-b border-cream/10">
-              <td class="py-5 pr-4 font-heading text-lg">{r.corso}</td>
-              <td class="py-5 px-4 text-cream/80">{r.ore}</td>
+              <td class="py-5 pr-4 font-heading text-lg whitespace-nowrap">{r.corso}</td>
+              <td class="py-5 px-4 text-cream/80 whitespace-nowrap">{r.ore}</td>
+              <td class="py-5 px-4 text-cream/80 text-sm">{r.ruolo}</td>
               <td class="py-5 px-4 text-xl" aria-label="Comprensione Tecnologica">{r.ct}</td>
               <td class="py-5 px-4 text-xl" aria-label="Conoscenza Applicativa">{r.ca}</td>
               <td class="py-5 px-4 text-xl" aria-label="Pensiero Critico">{r.pc}</td>
@@ -44,11 +58,11 @@ const rows = [
       </table>
     </div>
 
-    <p class="mt-8 text-sm text-cream/80">
-      INITIUM &egrave; il corso di compliance primaria per l&apos;Art. 4.
+    <p class="mt-8 text-xs italic text-cream/60">
+      &#10003; Piena &middot; &#9681; Parziale &middot; &#9678; Infrastrutturale &middot; &ndash; Non applicabile
     </p>
-    <p class="mt-2 text-xs text-cream/60">
-      &#9679; piena &middot; &#9680; parziale &middot; &#9675; pre-compliance
+    <p class="mt-3 text-sm text-cream/80 max-w-3xl">
+      PRIMUS &egrave; un workshop di awareness e da solo non &egrave; sufficiente a soddisfare l&apos;Art. 4. La compliance primaria &egrave; garantita da INITIUM.
     </p>
   </Container>
 </section>

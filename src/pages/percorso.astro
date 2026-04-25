@@ -10,12 +10,15 @@ const corsi = (await getCollection('corsi')).sort(
   (a, b) => a.data.order - b.data.order
 );
 
-const numerals = ['I', 'II', 'III', 'IV', 'V'];
+const numerals = ['', 'I', 'II', 'III', 'IV', 'V'];
+
+const corsiBase = corsi.filter((c) => c.data.order <= 3);
+const corsiAvanzati = corsi.filter((c) => c.data.order >= 4);
 
 const title =
-  'Percorso AI Ratio — Tre tappe per integrare l\'AI in azienda | Stefano Andrello';
+  'Percorso AI Ratio + Corsi avanzati — Formazione AI conforme EU AI Act | Stefano Andrello';
 const description =
-  'Tre corsi conformi EU AI Act: PRIMUS (workshop 4h), CONSILIUM (laboratorio 7h), INITIUM (certificazione 20h). Per chi deve integrare l\'intelligenza artificiale nella propria PMI con metodo.';
+  'Percorso AI Ratio in tre tappe (PRIMUS, CONSILIUM, INITIUM) più due corsi avanzati (STRUCTURA, AI AGENTS & MCP). Tutti conformi all\'Art. 4 del Regolamento UE 2024/1689.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -51,21 +54,22 @@ const description =
           Dal 2 febbraio 2025 l&apos;Articolo 4 del Regolamento (UE) 2024/1689 rende l&apos;AI literacy obbligatoria per chiunque utilizzi sistemi di AI in azienda. Non è un adempimento formale: è il riconoscimento che le persone hanno diritto a capire le tecnologie che prendono decisioni al loro posto. Il Percorso AI Ratio copre questo obbligo in modo documentabile.
         </p>
         <p>
-          Ogni tappa funziona da sola o come parte del percorso completo. Si entra dal livello giusto per il proprio ruolo.
+          Ogni tappa funziona da sola o come parte del percorso completo. Si entra dal livello giusto per il proprio ruolo. Per chi ha già le fondamenta operative, due corsi avanzati estendono il percorso verso la governance documentale e gli agenti AI.
         </p>
       </div>
     </Container>
   </section>
 
+  <!-- BLOCCO 1 — Percorso AI Ratio (3 tappe core) -->
   <section class="py-16 bg-sand">
     <Container>
       <div class="space-y-10">
-        {corsi.map((c, i) => (
+        {corsiBase.map((c) => (
           <article class="bg-cream border border-stone/15 rounded-2xl p-8 md:p-12">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start">
               <div class="md:col-span-1">
                 <div class="font-heading font-bold text-gold/30 leading-none text-7xl md:text-8xl lg:text-9xl select-none">
-                  {numerals[i]}
+                  {numerals[c.data.order]}
                 </div>
               </div>
               <div class="md:col-span-4">
@@ -109,7 +113,100 @@ const description =
                   ))}
                 </ul>
 
-                <div class="mt-10">
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                  <a
+                    href={`/contatti?corso=${c.data.slug}`}
+                    class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-6 py-2.5 text-sm font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+                  >
+                    Parlami di {c.data.name} &rarr;
+                  </a>
+                  <a
+                    href={`/corsi/${c.data.slug}`}
+                    class="inline-flex items-center justify-center border border-midnight text-midnight rounded-full px-6 py-2.5 text-sm font-medium hover:bg-midnight hover:text-cream transition-colors"
+                  >
+                    Vedi pagina dettaglio &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- BLOCCO 2 — Corsi avanzati -->
+  <section class="py-20 md:py-24">
+    <Container>
+      <div class="max-w-3xl mb-12">
+        <p class="text-xs uppercase tracking-widest text-stone font-medium">
+          Corsi avanzati
+        </p>
+        <h2 class="mt-4 text-4xl md:text-5xl font-heading font-semibold text-midnight leading-tight">
+          Corsi avanzati.
+        </h2>
+        <p class="mt-6 text-lg text-stone leading-relaxed">
+          Per chi ha già le fondamenta operative e vuole portare l&apos;AI a un livello più strutturato.
+        </p>
+      </div>
+
+      <div class="space-y-10">
+        {corsiAvanzati.map((c) => (
+          <article class="bg-sand border border-stone/15 rounded-2xl p-8 md:p-12">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start">
+              <div class="md:col-span-1">
+                <div class="font-heading font-bold text-gold/30 leading-none text-7xl md:text-8xl lg:text-9xl select-none">
+                  {numerals[c.data.order]}
+                </div>
+              </div>
+              <div class="md:col-span-4">
+                <p class="text-xs uppercase tracking-widest text-stone font-medium">
+                  {c.data.hours} ORE · {c.data.type.toUpperCase()}
+                </p>
+                <h3 class="mt-3 text-3xl font-heading font-semibold text-midnight leading-tight">
+                  {c.data.name} · {c.data.latinName}
+                </h3>
+                {c.data.certification && (
+                  <span class="mt-4 inline-block border border-gold rounded-full px-3 py-1 text-xs uppercase tracking-wider text-charcoal">
+                    {c.data.certification}
+                  </span>
+                )}
+                <p class="mt-5 italic text-stone">
+                  Per chi &mdash; {c.data.forWho.toLowerCase()}.
+                </p>
+                <p class="mt-4 text-charcoal leading-relaxed">
+                  {c.data.fullDescription}
+                </p>
+
+                <h4 class="mt-10 text-xs uppercase tracking-widest text-stone font-medium">
+                  Moduli
+                </h4>
+                <ul class="mt-4 space-y-5">
+                  {c.data.modules.map((m, mi) => (
+                    <li class="grid grid-cols-[auto_1fr] gap-4">
+                      <span class="font-heading text-sm text-gold/70 mt-0.5 w-8">
+                        {String(mi + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <div class="flex flex-wrap items-baseline gap-x-3">
+                          <span class="font-semibold text-midnight">{m.title}</span>
+                          <span class="text-xs uppercase tracking-widest text-stone">
+                            {m.hours} {m.hours === 1 ? 'ora' : 'ore'}
+                          </span>
+                        </div>
+                        <p class="mt-1 text-charcoal leading-relaxed">{m.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                  <a
+                    href={`/contatti?corso=${c.data.slug}`}
+                    class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-6 py-2.5 text-sm font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+                  >
+                    Parlami di {c.data.name} &rarr;
+                  </a>
                   <a
                     href={`/corsi/${c.data.slug}`}
                     class="inline-flex items-center justify-center border border-midnight text-midnight rounded-full px-6 py-2.5 text-sm font-medium hover:bg-midnight hover:text-cream transition-colors"
@@ -126,6 +223,29 @@ const description =
   </section>
 
   <Compliance />
+
+  <!-- Sezione "Oltre i corsi" -->
+  <section class="py-20 md:py-24">
+    <Container>
+      <div class="max-w-prose">
+        <p class="text-xs uppercase tracking-widest text-stone font-medium">
+          Oltre la formazione
+        </p>
+        <h2 class="mt-4 text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+          Oltre i corsi &mdash; Consulenza e progettazione.
+        </h2>
+        <p class="mt-8 text-lg text-charcoal leading-relaxed">
+          Per le aziende che non vogliono solo formare il team, ma costruire soluzioni AI proprietarie: progetto e implemento agenti AI compliant con il Regolamento UE 2024/1689, sviluppo MCP server custom, e affianco la direzione nelle scelte di governance.
+        </p>
+        <a
+          href="/contatti?tipo=consulenza-agentica"
+          class="mt-10 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+        >
+          Parliamone &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
 
   <section class="py-24">
     <Container>
