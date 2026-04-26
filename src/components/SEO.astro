@@ -71,6 +71,12 @@ const baseSchema: Record<SchemaType, Record<string, unknown>> = {
     name: title,
     description,
     url: siteUrl,
+    inLanguage: 'it-IT',
+    author: {
+      '@type': 'Person',
+      name: 'Stefano Andrello',
+      url: `${siteUrl}/chi-sono`,
+    },
   },
   Person: {
     '@context': 'https://schema.org',
@@ -206,9 +212,10 @@ if (faq && schemaType !== 'FAQPage') {
   schemas.push(faqSchema(faq));
 }
 
-const ogImageUrl = ogImage
-  ? new URL(ogImage, siteUrl).toString()
-  : undefined;
+// Default OG image: editorial PNG generato da /og-image.png al build time.
+// Sovrascrivibile per pagina passando la prop `ogImage` esplicita.
+const ogImageUrl = new URL(ogImage ?? '/og-image.png', siteUrl).toString();
+const ogImageAlt = 'Stefano Andrello — AI Strategist per PMI italiane';
 ---
 
 <title>{title}</title>
@@ -219,12 +226,19 @@ const ogImageUrl = ogImage
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical} />
-{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content="Stefano Andrello" />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={ogImageAlt} />
+<meta property="og:image:type" content="image/png" />
 
-<meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+<meta name="twitter:image" content={ogImageUrl} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
 
 {schemas.map((s) => (
   <script is:inline type="application/ld+json" set:html={JSON.stringify(s)} />
