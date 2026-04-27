@@ -4,53 +4,49 @@ import { Resvg } from '@resvg/resvg-js';
 
 // Layout editoriale: cream bg, eyebrow, titolo Fraunces-style su 2 righe,
 // sottotitolo, accent gold, footer Glitch magenta in basso a destra.
+// Renderizzato a 2400x1260 (2x retina) per nitidezza dopo compressione di
+// LinkedIn / Facebook / X. La canvas dichiarata nei meta resta 1200x630.
 // Fonts: serif/sans-serif/monospace generici risolti via fontconfig.
-// Per font di brand reali (Fraunces / Inter / JetBrains Mono), aggiungere
-// i .ttf in public/fonts/ e passarli a Resvg via opts.font.fontFiles.
 
 const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#F5EFE0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1260" viewBox="0 0 2400 1260">
+  <rect width="2400" height="1260" fill="#F5EFE0"/>
 
-  <!-- Eyebrow -->
-  <text x="80" y="120"
+  <text x="160" y="240"
         font-family="Inter, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
-        font-size="18" font-weight="500" letter-spacing="2.7" fill="#7A6B5D">
+        font-size="36" font-weight="500" letter-spacing="5.4" fill="#7A6B5D">
     STEFANOANDRELLO.ME
   </text>
 
-  <!-- Titolo, due righe (size 80 + line-height 1.1 = 88px tra baselines) -->
-  <text x="80" y="240"
+  <text x="160" y="480"
         font-family="Fraunces, Georgia, 'Times New Roman', serif"
-        font-size="80" font-weight="600" fill="#0B1F3A">
+        font-size="160" font-weight="600" fill="#0B1F3A">
     AI Strategist
   </text>
-  <text x="80" y="328"
+
+  <text x="160" y="656"
         font-family="Fraunces, Georgia, 'Times New Roman', serif"
-        font-size="80" font-weight="600" fill="#0B1F3A">
+        font-size="160" font-weight="600" fill="#0B1F3A">
     per PMI italiane.
   </text>
 
-  <!-- Sottotitolo -->
-  <text x="80" y="400"
+  <text x="160" y="800"
         font-family="Inter, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
-        font-size="28" font-weight="400" fill="#3D3A35">
+        font-size="56" font-weight="400" fill="#3D3A35">
     Formazione EU AI Act &#183; AI agentica &#183; MCP server
   </text>
 
-  <!-- Accent gold (240x2) sopra il footer -->
-  <rect x="80" y="520" width="240" height="2" fill="#C8A858"/>
+  <rect x="160" y="1040" width="480" height="4" fill="#C8A858"/>
 
-  <!-- Footer Glitch in basso a destra -->
-  <text x="1120" y="555" text-anchor="end"
+  <text x="2240" y="1110" text-anchor="end"
         font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace"
-        font-size="16" font-weight="700" fill="#C724FF">
+        font-size="32" font-weight="700" fill="#C724FF">
     Glitch &#8212; Il glitch &#232; umano.
   </text>
 </svg>`;
 
 const opts = {
-  fitTo: { mode: 'width' as const, value: 1200 },
+  fitTo: { mode: 'width' as const, value: 2400 },
   font: {
     loadSystemFonts: true,
     defaultFontFamily: 'Inter',
