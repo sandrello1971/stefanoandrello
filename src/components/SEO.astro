@@ -171,6 +171,30 @@ const baseSchema: Record<SchemaType, Record<string, unknown>> = {
           value: 'B0F8K8367C',
         },
       },
+      {
+        '@type': 'Book',
+        '@id': `${siteUrl}#book-restare-umani`,
+        name: "Restare Umani: Guida all'intelligenza artificiale per chi non vuole smettere di pensare",
+        alternativeHeadline: 'Manifesto antropocentrico sull\'intelligenza artificiale',
+        author: { '@id': `${siteUrl}#stefano` },
+        datePublished: '2026-04-28',
+        inLanguage: 'it',
+        numberOfPages: 199,
+        isbn: '9798259248908',
+        url: 'https://www.amazon.it/dp/B0GYX3JK3Z',
+        identifier: [
+          {
+            '@type': 'PropertyValue',
+            propertyID: 'ISBN',
+            value: '9798259248908',
+          },
+          {
+            '@type': 'PropertyValue',
+            propertyID: 'ASIN',
+            value: 'B0GYX3JK3Z',
+          },
+        ],
+      },
     ],
   },
   Article: {

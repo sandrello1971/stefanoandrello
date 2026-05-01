@@ -4,10 +4,9 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
 
-const title =
-  'I libri di Stefano Andrello — Intelligenza Artificiale per chi non vuole smettere di pensare';
+const title = 'Tre libri di Stefano Andrello sull\'intelligenza artificiale';
 const description =
-  'Due libri sull\'intelligenza artificiale: Il Futuro non è scritto e L\'Intelligenza Artificiale in Pratica. Sinossi, estratti, link Amazon.';
+  'Tre libri sull\'intelligenza artificiale: Il Futuro non è scritto, L\'Intelligenza Artificiale in Pratica, Restare Umani. Per capire e governare l\'AI nel lavoro umano.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -19,24 +18,35 @@ const description =
         <span class="text-charcoal">Libri</span>
       </nav>
       <p class="text-xs uppercase tracking-widest text-stone font-medium">
-        Libreria
+        I libri
       </p>
       <h1 class="mt-4 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-midnight leading-[1.1]">
-        I libri.
+        Tre libri, una traiettoria.
       </h1>
-      <p class="mt-6 text-xl text-stone leading-relaxed max-w-2xl">
-        Due volumi per esplorare l&apos;intelligenza artificiale tra narrativa e pratica.
+      <p class="mt-6 text-xl italic text-stone leading-relaxed max-w-2xl">
+        Tre tappe per capire &mdash; e governare &mdash; l&apos;intelligenza artificiale nel lavoro umano.
       </p>
     </Container>
   </section>
 
-  <section class="py-20">
+  <section class="pb-12">
+    <Container>
+      <div class="max-w-prose">
+        <p class="text-lg text-charcoal leading-relaxed">
+          Ho scritto questi tre libri nell&apos;arco di un anno e mezzo, e non per caso seguono un ordine preciso. Ognuno risponde a una domanda diversa che le persone mi pongono quando incontrano l&apos;AI per la prima volta. Si possono leggere indipendentemente. Letti in ordine, raccontano insieme la traiettoria di chi ha scelto di non lasciare l&apos;AI a se stessa.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- LIBRO 1 — Il Futuro non è scritto -->
+  <section class="py-20 border-t border-stone/20">
     <Container>
       <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-start">
         <div class="md:col-span-2">
           <img
-            src="/img/libri/ia-in-pratica.jpg"
-            alt="Copertina di L'Intelligenza Artificiale in Pratica - Guida critica per educatori e professionisti, di Stefano Andrello"
+            src="/img/libri/futuro-non-scritto.jpg"
+            alt="Copertina di Il Futuro non è scritto, di Stefano Andrello"
             width="640"
             height="960"
             loading="eager"
@@ -45,13 +55,71 @@ const description =
         </div>
         <div class="md:col-span-3">
           <p class="text-xs uppercase tracking-widest text-stone font-medium">
-            Dicembre 2025 &middot; 206 pagine
+            Primo volume &middot; 2024
           </p>
           <h2 class="mt-4 text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
-            L&apos;Intelligenza Artificiale in Pratica
+            Il Futuro non è scritto.
           </h2>
           <p class="mt-3 italic text-stone text-lg">
-            Guida critica per educatori e professionisti &mdash; Per una Pedagogia Critica dell&apos;IA
+            Cos&apos;è l&apos;AI?
+          </p>
+          <p class="mt-5 text-charcoal leading-relaxed font-medium">
+            Un viaggio narrativo dentro la mente di un&apos;intelligenza artificiale. La storia, le capacità, i limiti &mdash; raccontati in prima persona dall&apos;AI stessa.
+          </p>
+
+          <div class="mt-8 space-y-5 text-charcoal leading-relaxed">
+            <p>
+              Un viaggio narrativo nel mondo dell&apos;AI raccontato in prima persona. L&apos;AI parla di sé: chi è, da dove viene, dove sta andando.
+            </p>
+            <p>
+              Dalle origini del Test di Turing al Deep Learning, dall&apos;Inverno dell&apos;AI al boom dei Large Language Model, una voce non umana racconta la propria storia, le proprie capacità e i propri limiti &mdash; senza falsi miti né apocalittiche promesse.
+            </p>
+            <p>
+              Per chi vuole capire l&apos;intelligenza artificiale dall&apos;interno, prima di valutare.
+            </p>
+          </div>
+
+          <div class="mt-10">
+            <a
+              href="https://www.amazon.it/dp/B0F8K8367C"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+            >
+              Acquista su Amazon &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- LIBRO 2 — L'Intelligenza Artificiale in Pratica -->
+  <section class="py-20 bg-sand border-t border-stone/20">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-start">
+        <div class="md:col-span-2">
+          <img
+            src="/img/libri/ia-in-pratica.jpg"
+            alt="Copertina di L'Intelligenza Artificiale in Pratica - Guida critica per educatori e professionisti, di Stefano Andrello"
+            width="640"
+            height="960"
+            loading="lazy"
+            class="rounded-lg shadow-2xl max-w-[320px] w-full mx-auto"
+          />
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-xs uppercase tracking-widest text-stone font-medium">
+            Secondo volume &middot; Dicembre 2025 &middot; 206 pagine
+          </p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+            L&apos;Intelligenza Artificiale in Pratica.
+          </h2>
+          <p class="mt-3 italic text-stone text-lg">
+            Come si usa bene?
+          </p>
+          <p class="mt-5 text-charcoal leading-relaxed font-medium">
+            Il manuale operativo. Pedagogia critica per educatori, formatori, professionisti che devono integrare l&apos;AI nei processi reali, oggi. Senza magia, con metodo.
           </p>
 
           <div class="mt-8 space-y-5 text-charcoal leading-relaxed">
@@ -79,10 +147,6 @@ const description =
               <dd class="mt-1 text-charcoal">Italiano</dd>
             </div>
             <div>
-              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Editore</dt>
-              <dd class="mt-1 text-charcoal">Indipendente</dd>
-            </div>
-            <div>
               <dt class="text-xs uppercase tracking-widest text-stone font-medium">Pubblicato</dt>
               <dd class="mt-1 text-charcoal">4 dicembre 2025</dd>
             </div>
@@ -92,7 +156,7 @@ const description =
             <a
               href="https://www.amazon.it/dp/B0G58CYJ4V"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
             >
               Acquista su Amazon &mdash; 15,60 &euro; &rarr;
@@ -100,18 +164,10 @@ const description =
             <a
               href="https://www.amazon.it/dp/B0G58CYJ4V"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               class="inline-flex items-center justify-center border border-midnight text-midnight rounded-full px-8 py-3 font-medium hover:bg-midnight hover:text-cream transition-colors"
             >
               Versione Kindle &mdash; 7,99 &euro; &rarr;
-            </a>
-          </div>
-          <div class="mt-4">
-            <a
-              href="#"
-              class="text-sm text-stone hover:text-midnight transition-colors"
-            >
-              Scarica un capitolo gratuito &rarr;
             </a>
           </div>
         </div>
@@ -119,17 +175,14 @@ const description =
     </Container>
   </section>
 
-  <div class="max-w-5xl mx-auto px-6">
-    <hr class="border-t border-stone/20" />
-  </div>
-
-  <section class="py-20 bg-sand">
+  <!-- LIBRO 3 — Restare Umani -->
+  <section class="py-20 border-t border-stone/20">
     <Container>
       <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-start">
         <div class="md:col-span-2">
           <img
-            src="/img/libri/futuro-non-scritto.jpg"
-            alt="Copertina di Il Futuro non è scritto - Memorie di un'Intelligenza Artificiale, di Stefano Andrello"
+            src="/img/libri/restare-umani.png"
+            alt="Copertina di Restare Umani - Guida all'intelligenza artificiale per chi non vuole smettere di pensare, di Stefano Andrello"
             width="640"
             height="960"
             loading="lazy"
@@ -138,46 +191,77 @@ const description =
         </div>
         <div class="md:col-span-3">
           <p class="text-xs uppercase tracking-widest text-stone font-medium">
-            Primo volume
+            Terzo volume &middot; Aprile 2026 &middot; 199 pagine
           </p>
           <h2 class="mt-4 text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
-            Il Futuro non è scritto
+            Restare Umani.
           </h2>
           <p class="mt-3 italic text-stone text-lg">
-            Memorie di un&apos;Intelligenza Artificiale
+            Perché continuare a pensare?
+          </p>
+          <p class="mt-5 text-charcoal leading-relaxed font-medium">
+            Il manifesto antropocentrico. Una guida per chi non vuole smettere di esercitare il proprio giudizio anche quando l&apos;algoritmo offre la scorciatoia. Il libro più filosofico dei tre, e il più necessario.
           </p>
 
           <div class="mt-8 space-y-5 text-charcoal leading-relaxed">
             <p>
-              Un viaggio narrativo nel mondo dell&apos;AI raccontato in prima persona. L&apos;AI parla di sé: chi è, da dove viene, dove sta andando.
+              Sono le 7:12. Il telefono di Marta si accende e le mostra esattamente quello che le serve: la temperatura, il traffico, tre messaggi importanti. Marta non si chiede come faccia il telefono a sapere tutto questo. Non se lo chiede mai.
             </p>
             <p>
-              Dalle origini del Test di Turing al Deep Learning, dall&apos;Inverno dell&apos;AI al boom dei Large Language Model, una voce non umana racconta la propria storia, le proprie capacità e i propri limiti &mdash; senza falsi miti né apocalittiche promesse.
+              Eppure ognuno di noi, ogni mattina, vive scene come questa. Algoritmi che sanno a che ora ci svegliamo, che cosa ci farà arrabbiare scrollando, quali notizie ci convinceranno a votare. Sistemi che decidono se la nostra richiesta di mutuo passa, se il nostro CV arriva mai a un essere umano, se i nostri figli vedono contenuti adatti alla loro età.
             </p>
             <p>
-              Un libro per chi vuole capire l&apos;intelligenza artificiale dall&apos;interno, attraverso una metafora narrativa che funziona da chiave di lettura.
+              Questo libro racconta come funzionano davvero quelle macchine, senza chiederti di diventare un tecnico. Lo fa attraverso le storie di tre persone &mdash; un&apos;impiegata, uno studente, una funzionaria pubblica &mdash; e attraverso i casi che ci riguardano da vicino: dal blocco di ChatGPT da parte del Garante italiano alla sentenza di Bologna sui rider di Deliveroo, dall&apos;algoritmo della Buona Scuola alla tragedia che ha portato il Garante a intervenire sui feed di TikTok.
             </p>
             <p>
-              Citato come opera di riferimento nel volume successivo <em>L&apos;Intelligenza Artificiale in Pratica</em>.
+              Non troverai istruzioni. Troverai un punto di vista nuovo su qualcosa che usi tutti i giorni senza guardarlo davvero. E, alla fine, qualche scelta concreta da fare.
             </p>
           </div>
 
+          <blockquote class="mt-10 max-w-prose border-l-4 border-gold pl-6">
+            <p class="font-heading italic text-2xl text-midnight leading-snug">
+              &laquo;Restare umani non significa rifiutare le macchine. Significa scegliere come usarle, prima che siano loro a usare te.&raquo;
+            </p>
+            <footer class="mt-3 text-xs uppercase tracking-widest text-stone">
+              dall&apos;introduzione
+            </footer>
+          </blockquote>
+
+          <dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Pagine</dt>
+              <dd class="mt-1 text-charcoal">199</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Lingua</dt>
+              <dd class="mt-1 text-charcoal">Italiano</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">ISBN</dt>
+              <dd class="mt-1 text-charcoal">979-8259248908</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-widest text-stone font-medium">Pubblicato</dt>
+              <dd class="mt-1 text-charcoal">28 aprile 2026</dd>
+            </div>
+          </dl>
+
           <div class="mt-10 flex flex-col sm:flex-row flex-wrap gap-4">
             <a
-              href="https://www.amazon.it/dp/B0F8K8367C"
+              href="https://www.amazon.it/dp/B0GYX3JK3Z"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
             >
-              Acquista su Amazon &rarr;
+              Acquista su Amazon &mdash; 15,60 &euro; &rarr;
             </a>
-          </div>
-          <div class="mt-4">
             <a
-              href="#"
-              class="text-sm text-stone hover:text-midnight transition-colors"
+              href="https://www.amazon.it/dp/B0GYX3JK3Z"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center border border-midnight text-midnight rounded-full px-8 py-3 font-medium hover:bg-midnight hover:text-cream transition-colors"
             >
-              Scarica un estratto &rarr;
+              Versione Kindle &mdash; 12,99 &euro; &rarr;
             </a>
           </div>
         </div>
@@ -185,15 +269,19 @@ const description =
     </Container>
   </section>
 
-  <section class="py-24">
+  <!-- Sezione finale -->
+  <section class="py-16 bg-sand border-t border-stone/20">
     <Container>
-      <div class="max-w-2xl">
-        <p class="text-lg text-charcoal leading-relaxed">
-          Stefano scrive di intelligenza artificiale dal 2024. I suoi libri sono usati come testi di riferimento in corsi di formazione aziendale e in alcuni istituti scolastici.
+      <div class="max-w-2xl mx-auto text-center">
+        <h3 class="text-2xl md:text-3xl font-heading font-semibold text-midnight leading-tight">
+          Stefano scrive di intelligenza artificiale dal 2024.
+        </h3>
+        <p class="mt-6 text-lg text-charcoal leading-relaxed">
+          I suoi libri sono usati come testi di riferimento in corsi di formazione aziendale e in alcuni istituti scolastici italiani.
         </p>
         <a
           href="/contatti"
-          class="mt-8 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+          class="mt-10 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
         >
           Parliamo di formazione &rarr;
         </a>
