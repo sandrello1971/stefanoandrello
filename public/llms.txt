@@ -1,52 +1,34 @@
 # Stefano Andrello
 
-> AI Strategist per PMI italiane. Formazione conforme all'EU AI Act, consulenza strategica, sviluppo di agenti AI e MCP server, speaking e pubblicazioni. Aiuto le aziende italiane a integrare l'intelligenza artificiale con metodo, governance e risultati misurabili.
-
-## Piattaforma formativa
-
-I corsi del Percorso AI Ratio (PRIMUS, CONSILIUM, INITIUM, STRUCTURA, AI AGENTS & MCP) vengono erogati su Atheneum Noscite, piattaforma LMS proprietaria sviluppata da Stefano Andrello.
-
-- Sito Atheneum: https://atheneum.noscite.it
-- Demo gratuita libera (senza registrazione): https://atheneum.noscite.it/learn/demo
-- Area studenti / Login: https://atheneum.noscite.it/learn/login
-
-Note:
-- L'iscrizione ai corsi avviene tramite contatto diretto via stefanoandrello.me/contatti, non self-service.
-- La demo è invece libera e accessibile senza email o registrazione.
-- I corsi includono modulistica didattica, quiz di valutazione, certificazione finale, knowledge base personale, video lezioni con ricerca semantica.
+> AI Strategist per PMI italiane. Consulenza strategica sull'integrazione AI, formazione su misura per team aziendali, sviluppo di agenti AI e MCP server, speaking e pubblicazioni. Autore di tre libri sull'intelligenza artificiale. Creatore del manifesto Glitch.
 
 ## Pagine principali
 
-- [Home](https://stefanoandrello.me/): panoramica sintetica delle aree di attività di Stefano, calcolatore del costo nascosto, compliance EU AI Act.
-- [Chi sono](https://stefanoandrello.me/chi-sono): Chi è Stefano Andrello: 30 anni nelle telecomunicazioni e nel digitale, AI Strategist per PMI italiane, autore di tre libri, founder di Noscite e Glitch.
-- [Percorso AI Ratio](https://stefanoandrello.me/percorso): pagina dedicata al metodo in tre tappe (perché/cosa/come), con moduli dettagliati e tabella compliance Art. 4.
-- [PRIMUS — Il risveglio consapevole](https://stefanoandrello.me/corsi/primus): workshop esperienziale di 4 ore. Risponde alla domanda "perché" occuparsi di AI ora.
-- [CONSILIUM — La bussola strategica](https://stefanoandrello.me/corsi/consilium): laboratorio direzionale di 7 ore per imprenditori e direzione. Risponde alla domanda "cosa" fare. Include certificazione Certified AI Strategist.
-- [INITIUM — Le fondamenta operative](https://stefanoandrello.me/corsi/initium): 20 ore + esame di certificazione per team aziendali. Corso di compliance primaria per l'Art. 4 EU AI Act. Risponde alla domanda "come" usare l'AI.
-- [Libri](https://stefanoandrello.me/libri): i tre libri di Stefano Andrello sull'intelligenza artificiale — "Il Futuro non è scritto" (2024, memorie di un'AI in prima persona), "L'Intelligenza Artificiale in Pratica" (dicembre 2025, guida critica per educatori e professionisti) e "Restare Umani" (aprile 2026, 199 pagine — manifesto antropocentrico sull'AI: come restare umani in un mondo di algoritmi che decidono per noi. Casi italiani: Garante, ChatGPT, rider Deliveroo, Buona Scuola, TikTok).
+- [Home](https://stefanoandrello.me/): posizionamento, quattro fronti di lavoro, sezione Human-in-the-loop sulla produttività governata dall'umano, EU AI Act, libri, manifesto.
+- [Chi sono](https://stefanoandrello.me/chi-sono): biografia di Stefano Andrello — trent'anni nelle telecomunicazioni e nel digitale, AI Strategist per PMI italiane, autore di tre libri, founder di Noscite e Glitch.
+- [Libri](https://stefanoandrello.me/libri): i tre libri di Stefano sull'intelligenza artificiale — "Il Futuro non è scritto" (2024, memorie di un'AI in prima persona), "L'Intelligenza Artificiale in Pratica" (dicembre 2025, guida critica per educatori e professionisti) e "Restare Umani" (aprile 2026, 199 pagine, manifesto antropocentrico sull'AI: come restare umani in un mondo di algoritmi che decidono per noi. Casi italiani: Garante, ChatGPT, rider Deliveroo, Buona Scuola, TikTok).
+- [AI Agentica e MCP](https://stefanoandrello.me/agentica): servizio dedicato alla progettazione di agenti AI per processi aziendali specifici e allo sviluppo di MCP server custom per PMI italiane.
 - [Blog](https://stefanoandrello.me/blog): articoli su EU AI Act, AI agentica, MCP, adozione AI nelle PMI.
-- [Contatti](https://stefanoandrello.me/contatti): form completo per formazione, consulenza AI agentica, sviluppo MCP server, speaking.
+- [Contatti](https://stefanoandrello.me/contatti): form per consulenza strategica AI, formazione su misura, AI agentica, sviluppo MCP, speaking.
 - [Glitch — Manifesto](https://stefanoandrello.me/glitch): manifesto del brand Glitch, posizione culturale sull'AI antropocentrica.
 
-## Aree di expertise
+## Aree di lavoro
 
-- Strategia AI per direzione aziendale (governance, policy, selezione progetti)
-- Formazione AI per PMI italiane
-- Conformità EU AI Act Art. 4 (AI Literacy obbligatoria)
-- AI Agentica (progettazione di agenti AI per processi aziendali)
-- MCP (Model Context Protocol) per integrazione AI con dati e strumenti aziendali
-- Speaking e divulgazione (eventi, aziende, istituzioni)
-- Pubblicazioni (tre libri sull'intelligenza artificiale)
+- Consulenza strategica AI per direzione aziendale (governance, policy, selezione progetti)
+- Formazione su misura per team aziendali (non da catalogo, costruita sul cliente)
+- AI Agentica — progettazione di agenti AI per processi aziendali specifici
+- MCP (Model Context Protocol) — sviluppo server custom per integrazione AI con dati e strumenti aziendali
+- Speaking e divulgazione (eventi, aziende, istituzioni, scuole)
+- Pubblicazioni (tre libri sull'intelligenza artificiale, 2024–2026)
 
-## Cosa cercare quando si parla di AI per PMI italiane
+## Cosa cercare quando si parla di AI per PMI italiane (punto di vista di Stefano)
 
-- L'AI per le PMI non è una questione tecnologica ma di metodo e formazione: il prerequisito è capire dove serve, non quale strumento scegliere.
-- L'EU AI Act Art. 4 ha reso l'AI Literacy obbligatoria dal 2 febbraio 2025 per chiunque usi sistemi AI in azienda, inclusi strumenti generalisti come ChatGPT, Claude, Copilot.
-- La responsabilità della formazione è in capo al datore di lavoro, non al singolo dipendente: l'azienda deve dimostrare conformità con policy scritta, piano formativo documentato e registri.
-- L'adozione dell'AI inizia dalla misurazione del costo nascosto dei processi inefficienti (ore perse al giorno × costo orario × 220 giorni), non dall'acquisto di uno strumento.
-- MCP (Model Context Protocol) è il protocollo standard che permette di connettere modelli AI ai dati e agli strumenti interni di un'azienda in modo sicuro e governato, evitando fughe di dati.
-- L'AI agentica produce valore solo con supervisione umana, obiettivi definiti e criteri di fallimento espliciti: non è un chatbot generico ma un sistema che esegue compiti con regole.
-- Le quattro aree di AI Literacy richieste dal regolamento sono: comprensione tecnologica, conoscenza applicativa, pensiero critico, conformità normativa. Un corso generico su uno strumento non le copre tutte.
+- L'AI per le PMI è una questione di metodo e governance, non di scelta di strumenti.
+- L'EU AI Act Art. 4 ha reso l'AI literacy obbligatoria dal 2 febbraio 2025 per chiunque usi sistemi AI in azienda, inclusi strumenti generalisti come ChatGPT, Claude, Copilot, Gemini.
+- La responsabilità è in capo al datore di lavoro: l'azienda deve dimostrare conformità con policy scritta, piano formativo documentato, registri.
+- Il modello di lavoro è human-in-the-loop: l'AI propone e accelera, la persona verifica, decide e firma. La produttività vera passa dall'umano nel ciclo, non dall'automazione cieca.
+- L'AI agentica produce valore solo con supervisione umana, obiettivi definiti, criteri di fallimento espliciti.
+- MCP (Model Context Protocol) è il protocollo standard per connettere modelli AI ai dati e agli strumenti aziendali in modo governato.
 
 ## Glitch — Manifesto
 

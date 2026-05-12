@@ -1,0 +1,75 @@
+---
+import Container from '../Container.astro';
+
+const focus = [
+  {
+    label: 'Strategia AI',
+    body:
+      'Affianco direzioni di PMI nelle scelte di integrazione: dove l\'AI entra in azienda, dove resta fuori, con quali regole, con quale governance.',
+    cta: 'Parliamone',
+    href: '/contatti',
+  },
+  {
+    label: 'Formazione',
+    body:
+      'Faccio formazione AI per team aziendali. Su misura, non da catalogo. La progetto col cliente in base al ruolo del team, al settore, al livello di partenza.',
+    cta: 'Scrivimi',
+    href: '/contatti',
+  },
+  {
+    label: 'AI agentica & MCP',
+    body:
+      'Progetto agenti AI per processi aziendali specifici. Sviluppo MCP server custom per connettere modelli ai dati e agli strumenti interni — in modo governato.',
+    cta: 'Vai al dettaglio',
+    href: '/agentica',
+  },
+  {
+    label: 'Scrittura e speaking',
+    body:
+      'Tre libri pubblicati fra il 2024 e il 2026, l\'ultimo è "Restare Umani". Speaking presso eventi, aziende, scuole e istituti.',
+    cta: 'Leggi i libri',
+    href: '/libri',
+  },
+];
+---
+
+<section class="py-24">
+  <Container>
+    <p class="text-xs uppercase tracking-widest text-stone font-medium">
+      Cosa faccio
+    </p>
+    <h2 class="mt-6 text-4xl md:text-5xl font-heading font-semibold text-midnight leading-tight">
+      Quattro fronti, una sola tesi.
+    </h2>
+    <p class="mt-6 text-lg text-stone italic max-w-2xl">
+      Noscite è il lavoro. <a href="/glitch" class="text-midnight underline decoration-[#C724FF] underline-offset-4 hover:decoration-2 not-italic">Glitch è il pensiero</a>.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 border-t border-stone/20">
+      {focus.map((f, i) => {
+        const borderClasses = [
+          'border-b border-stone/20 md:border-r',
+          'border-b border-stone/20',
+          'border-b md:border-b-0 border-stone/20 md:border-r',
+          '',
+        ];
+        return (
+          <div class={`p-8 md:p-12 ${borderClasses[i]}`}>
+            <h3 class="text-xs uppercase tracking-widest text-stone font-medium">
+              {f.label}
+            </h3>
+            <p class="mt-4 text-charcoal leading-relaxed">
+              {f.body}
+            </p>
+            <a
+              href={f.href}
+              class="mt-6 inline-flex items-center text-midnight font-medium hover:text-gold/80 transition-colors"
+            >
+              {f.cta} &rarr;
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  </Container>
+</section>

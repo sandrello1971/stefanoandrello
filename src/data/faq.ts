@@ -5,28 +5,28 @@ export interface FaqItem {
 
 export const faqs: FaqItem[] = [
   {
-    question: 'I corsi sono riconosciuti dall’EU AI Act?',
+    question: 'Su cosa puoi affiancarmi concretamente?',
     answer:
-      'Sì. INITIUM offre copertura piena dell’Art. 4 del Regolamento UE 2024/1689 nelle quattro aree di AI Literacy richieste. CONSILIUM copre le aree direzionali (governance, policy, selezione progetti). PRIMUS è propedeutico.',
+      'Su quattro fronti. Strategia: dove l\'AI entra in azienda e dove no, con quale governance. Formazione: progetti formativi su misura per il tuo team, non da catalogo. AI agentica e MCP: progettazione e sviluppo di agenti AI custom. Scrittura e speaking: intervento su eventi aziendali, scuole, istituti.',
   },
   {
-    question: 'Posso iniziare da CONSILIUM o devo fare per forza PRIMUS?',
+    question: 'La tua formazione è riconosciuta ai fini dell\'EU AI Act?',
     answer:
-      'Sì, puoi entrare al livello giusto per il tuo ruolo. PRIMUS è consigliato per team che non hanno mai affrontato il tema; CONSILIUM è dedicato alla direzione; INITIUM serve a tutti gli operativi.',
+      'Sì. I percorsi formativi che progetto sono strutturati per coprire le quattro aree di AI Literacy richieste dall\'Art. 4 del Regolamento (UE) 2024/1689 — comprensione tecnologica, conoscenza applicativa, pensiero critico, conformità normativa — con materiali documentabili in caso di audit.',
   },
   {
-    question: 'I corsi si svolgono in azienda o online?',
+    question: 'In azienda o online?',
     answer:
-      'Entrambe le modalità. Le sessioni esperienziali in presenza sono più efficaci per il workshop PRIMUS e il laboratorio CONSILIUM. INITIUM si presta anche al formato blended (live online + esercitazioni asincrone).',
+      'Entrambe. Le sessioni esperienziali e laboratori direzionali funzionano meglio in presenza. I percorsi più estesi si prestano al blended (live online + esercitazioni asincrone). Decidiamo in base al team e al settore.',
   },
   {
-    question: 'Posso finanziarli con fondi interprofessionali?',
+    question: 'I percorsi formativi sono finanziabili con fondi interprofessionali?',
     answer:
-      'Sì. I corsi sono compatibili con i principali fondi interprofessionali (Fondimpresa, Fondirigenti, For.Te.). Forniamo la documentazione necessaria per il caricamento dei piani formativi.',
+      'Sì. I percorsi che progetto sono compatibili con i principali fondi interprofessionali (Fondimpresa, Fondirigenti, For.Te.). Ti fornisco la documentazione necessaria per il caricamento dei piani formativi.',
   },
   {
-    question: 'Che differenza c’è tra un corso AI generico e il Percorso AI Ratio?',
+    question: 'Che differenza c\'è fra te e altri consulenti AI?',
     answer:
-      'Tre cose: la struttura in tre domande chiare (perché/cosa/come), la conformità documentata all’Art. 4 EU AI Act, e il fatto che ogni tappa produce output operativi — non slide ma decisioni, regole d’uso, progetti pilota.',
+      'Tre cose, principalmente. Lavoro solo con PMI italiane e capisco i loro vincoli reali (non scrivo il piano di Google). Costruisco con metodo human-in-the-loop: l\'umano resta al centro, l\'AI accelera. E ho un punto di vista pubblico — tre libri e il manifesto Glitch — che puoi leggere prima di decidere se vale la pena parlarci.',
   },
 ];

@@ -2,12 +2,9 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
 const tipoLabels: Record<string, string> = {
-  primus: 'Formazione PRIMUS (4h)',
-  consilium: 'Formazione CONSILIUM (7h)',
-  initium: 'Formazione INITIUM (20h)',
-  structura: 'Formazione STRUCTURA (Second Brain)',
-  'ai-agents-mcp': 'Formazione AI AGENTS & MCP',
-  'consulenza-agentica': 'Consulenza progettazione AI agentica EU AI Act',
+  'consulenza-strategica': 'Consulenza strategica AI',
+  formazione: 'Formazione su misura',
+  'consulenza-agentica': 'Consulenza AI agentica',
   mcp: 'Sviluppo MCP server custom',
   speaking: 'Speaking / eventi',
   altro: 'Altro',
