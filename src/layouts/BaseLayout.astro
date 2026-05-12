@@ -23,9 +23,10 @@ interface Props {
   ogImage?: string;
   schemaType?: SchemaType;
   faq?: FaqItem[];
+  noindex?: boolean;
 }
 
-const { title, description, ogImage, schemaType, faq } = Astro.props;
+const { title, description, ogImage, schemaType, faq, noindex } = Astro.props;
 ---
 
 <!doctype html>
@@ -53,6 +54,7 @@ const { title, description, ogImage, schemaType, faq } = Astro.props;
       ogImage={ogImage}
       schemaType={schemaType}
       faq={faq}
+      noindex={noindex}
     />
   </head>
   <body class="bg-cream text-charcoal font-body antialiased">

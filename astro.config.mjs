@@ -21,21 +21,24 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/private/') &&
         !page.includes('/draft/') &&
-        !page.includes('/open-graph/'),
+        !page.includes('/open-graph/') &&
+        !page.includes('/privacy') &&
+        !page.includes('/cookie'),
       serialize(item) {
         const url = new URL(item.url);
         const p = url.pathname;
         if (p === '/' || p === '') {
           item.priority = 1.0;
           item.changefreq = 'monthly';
-        } else if (p.startsWith('/corsi')) {
-          item.priority = 0.9;
-          item.changefreq = 'monthly';
         } else if (p.startsWith('/blog')) {
           item.priority = 0.7;
           item.changefreq = 'weekly';
+        } else if (p === '/glitch/' || p === '/glitch') {
+          item.priority = 0.6;
+          item.changefreq = 'monthly';
         } else {
-          item.priority = 0.5;
+          // chi-sono, libri, contatti, agentica (future), ecc.
+          item.priority = 0.8;
           item.changefreq = 'monthly';
         }
         return item;

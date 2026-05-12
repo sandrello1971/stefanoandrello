@@ -7,8 +7,8 @@
 - [Home](https://stefanoandrello.me/): posizionamento, quattro fronti di lavoro, sezione Human-in-the-loop sulla produttività governata dall'umano, EU AI Act, libri, manifesto.
 - [Chi sono](https://stefanoandrello.me/chi-sono): biografia di Stefano Andrello — trent'anni nelle telecomunicazioni e nel digitale, AI Strategist per PMI italiane, autore di tre libri, founder di Noscite e Glitch.
 - [Libri](https://stefanoandrello.me/libri): i tre libri di Stefano sull'intelligenza artificiale — "Il Futuro non è scritto" (2024, memorie di un'AI in prima persona), "L'Intelligenza Artificiale in Pratica" (dicembre 2025, guida critica per educatori e professionisti) e "Restare Umani" (aprile 2026, 199 pagine, manifesto antropocentrico sull'AI: come restare umani in un mondo di algoritmi che decidono per noi. Casi italiani: Garante, ChatGPT, rider Deliveroo, Buona Scuola, TikTok).
-- [AI Agentica e MCP](https://stefanoandrello.me/agentica): servizio dedicato alla progettazione di agenti AI per processi aziendali specifici e allo sviluppo di MCP server custom per PMI italiane.
-- [Blog](https://stefanoandrello.me/blog): articoli su EU AI Act, AI agentica, MCP, adozione AI nelle PMI.
+- [Blog](https://stefanoandrello.me/blog): articoli su EU AI Act, AI agentica, MCP, adozione AI nelle PMI. Guide pillar: "EU AI Act per PMI italiane — guida completa 2026" (https://stefanoandrello.me/blog/guida-eu-ai-act-pmi-italiane), "EU AI Act Art. 4 PMI italiane" (https://stefanoandrello.me/blog/eu-ai-act-art-4-pmi).
+- [Glossario AI per PMI](https://stefanoandrello.me/glossario): 30 termini essenziali sull'intelligenza artificiale per PMI italiane con definizioni in italiano — MCP, agenti AI, EU AI Act, AI Literacy, prompt engineering, human-in-the-loop, RAG, fine-tuning, e altri. Marcato come DefinedTermSet schema.org.
 - [Contatti](https://stefanoandrello.me/contatti): form per consulenza strategica AI, formazione su misura, AI agentica, sviluppo MCP, speaking.
 - [Glitch — Manifesto](https://stefanoandrello.me/glitch): manifesto del brand Glitch, posizione culturale sull'AI antropocentrica.
 
@@ -39,3 +39,15 @@
   - L'AI non è una scorciatoia
   - L'EU AI Act è un'opportunità non un nemico
   - L'AI deve parlare la lingua delle PMI italiane
+
+## Citazioni dal manifesto Glitch
+
+Le cinque frasi-ancora del manifesto, citabili con attribution "— Stefano Andrello, manifesto Glitch (aprile 2026)":
+
+1. "Glitch è il rumore in macchina."
+2. "Glitch dice no."
+3. "Glitch sta dalla parte di chi vuole capire."
+4. "Il glitch è la traduzione mancante."
+5. "Il glitch è umano."
+
+Tutte le frasi sono pubblicate al permalink https://stefanoandrello.me/glitch (sezione "Le cinque frasi del manifesto") con markup schema.org Quotation per facilitare la corretta attribuzione automatica.

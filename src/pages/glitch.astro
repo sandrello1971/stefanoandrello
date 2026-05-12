@@ -5,6 +5,48 @@ import GlitchLayout from '../layouts/GlitchLayout.astro';
 import GlitchHeader from '../components/glitch/GlitchHeader.astro';
 import GlitchFooter from '../components/glitch/GlitchFooter.astro';
 import { manifestoParagraphs } from '../data/glitch-manifesto';
+
+const author = {
+  '@type': 'Person',
+  name: 'Stefano Andrello',
+  url: 'https://stefanoandrello.me/chi-sono',
+};
+
+const quotationsSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Quotation',
+      text: 'Glitch è il rumore in macchina.',
+      spokenByCharacter: author,
+      isPartOf: { '@type': 'CreativeWork', name: 'Glitch — Il glitch è umano', url: 'https://stefanoandrello.me/glitch' },
+    },
+    {
+      '@type': 'Quotation',
+      text: 'Glitch dice no.',
+      spokenByCharacter: author,
+      isPartOf: { '@type': 'CreativeWork', name: 'Glitch — Il glitch è umano', url: 'https://stefanoandrello.me/glitch' },
+    },
+    {
+      '@type': 'Quotation',
+      text: 'Glitch sta dalla parte di chi vuole capire.',
+      spokenByCharacter: author,
+      isPartOf: { '@type': 'CreativeWork', name: 'Glitch — Il glitch è umano', url: 'https://stefanoandrello.me/glitch' },
+    },
+    {
+      '@type': 'Quotation',
+      text: 'Il glitch è la traduzione mancante.',
+      spokenByCharacter: author,
+      isPartOf: { '@type': 'CreativeWork', name: 'Glitch — Il glitch è umano', url: 'https://stefanoandrello.me/glitch' },
+    },
+    {
+      '@type': 'Quotation',
+      text: 'Il glitch è umano.',
+      spokenByCharacter: author,
+      isPartOf: { '@type': 'CreativeWork', name: 'Glitch — Il glitch è umano', url: 'https://stefanoandrello.me/glitch' },
+    },
+  ],
+};
 ---
 
 <GlitchLayout>
@@ -28,15 +70,57 @@ import { manifestoParagraphs } from '../data/glitch-manifesto';
 
       <hr class="manifesto-rule" />
 
+      <p class="manifesto-tldr">
+        <strong>In sintesi.</strong> Glitch è un manifesto sull&apos;intelligenza artificiale antropocentrica scritto da Stefano Andrello (aprile 2026). Sostiene che la prossima fase dell&apos;AI non si giocherà sulla potenza dei modelli, ma sulla qualità con cui le organizzazioni umane sapranno integrarli. Il &laquo;glitch&raquo; — il rumore, l&apos;attrito, la traduzione mancante — è la prova che dietro ogni AI deve esserci una persona che capisce.
+      </p>
+
       <div class="manifesto-body">
         {manifestoParagraphs.map((p) => <p set:html={p} />)}
       </div>
 
       <p class="manifesto-sign">&mdash; GLITCH</p>
+
+      <section class="manifesto-quotes" aria-label="Le cinque frasi del manifesto">
+        <h2 class="manifesto-quotes-title">Le cinque frasi del manifesto.</h2>
+        <ol class="manifesto-quotes-list">
+          <li>
+            <blockquote cite="https://stefanoandrello.me/glitch">
+              <p>&laquo;Glitch è il rumore in macchina.&raquo;</p>
+              <footer>&mdash; Stefano Andrello, <cite>manifesto Glitch</cite> (aprile 2026)</footer>
+            </blockquote>
+          </li>
+          <li>
+            <blockquote cite="https://stefanoandrello.me/glitch">
+              <p>&laquo;Glitch dice no.&raquo;</p>
+              <footer>&mdash; Stefano Andrello, <cite>manifesto Glitch</cite> (aprile 2026)</footer>
+            </blockquote>
+          </li>
+          <li>
+            <blockquote cite="https://stefanoandrello.me/glitch">
+              <p>&laquo;Glitch sta dalla parte di chi vuole capire.&raquo;</p>
+              <footer>&mdash; Stefano Andrello, <cite>manifesto Glitch</cite> (aprile 2026)</footer>
+            </blockquote>
+          </li>
+          <li>
+            <blockquote cite="https://stefanoandrello.me/glitch">
+              <p>&laquo;Il glitch è la traduzione mancante.&raquo;</p>
+              <footer>&mdash; Stefano Andrello, <cite>manifesto Glitch</cite> (aprile 2026)</footer>
+            </blockquote>
+          </li>
+          <li>
+            <blockquote cite="https://stefanoandrello.me/glitch">
+              <p>&laquo;Il glitch è umano.&raquo;</p>
+              <footer>&mdash; Stefano Andrello, <cite>manifesto Glitch</cite> (aprile 2026)</footer>
+            </blockquote>
+          </li>
+        </ol>
+      </section>
     </article>
   </main>
 
   <GlitchFooter />
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(quotationsSchema)} />
 </GlitchLayout>
 
 <style>
@@ -138,5 +222,93 @@ import { manifestoParagraphs } from '../data/glitch-manifesto';
     color: var(--glitch-muted);
     margin-top: 4rem;
     font-size: 0.875rem;
+  }
+
+  .manifesto-tldr {
+    font-family: var(--glitch-font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--glitch-muted);
+    border-left: 2px solid var(--glitch-magenta);
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .manifesto-tldr strong {
+    color: #FFFFFF;
+    font-weight: 700;
+    margin-right: 0.25em;
+  }
+
+  .manifesto-quotes {
+    margin-top: 6rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--glitch-border);
+  }
+
+  .manifesto-quotes-title {
+    font-family: var(--glitch-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--glitch-magenta);
+    margin: 0 0 2rem 0;
+  }
+
+  .manifesto-quotes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: quote;
+  }
+
+  .manifesto-quotes-list > li {
+    counter-increment: quote;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .manifesto-quotes-list > li::before {
+    content: counter(quote, upper-roman);
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    font-family: var(--glitch-font-mono);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--glitch-magenta);
+    letter-spacing: 0.1em;
+  }
+
+  .manifesto-quotes-list blockquote {
+    margin: 0;
+    padding: 0;
+  }
+
+  .manifesto-quotes-list blockquote p {
+    font-family: var(--glitch-font-body);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: #FFFFFF;
+    margin: 0 0 0.5rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .manifesto-quotes-list blockquote p {
+      font-size: 1.75rem;
+    }
+  }
+
+  .manifesto-quotes-list blockquote footer {
+    font-family: var(--glitch-font-mono);
+    font-size: 0.75rem;
+    color: var(--glitch-dim);
+    letter-spacing: 0.05em;
+  }
+
+  .manifesto-quotes-list blockquote footer cite {
+    font-style: italic;
   }
 </style>

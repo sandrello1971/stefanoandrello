@@ -7,6 +7,56 @@ import Container from '../components/Container.astro';
 const title = 'Tre libri di Stefano Andrello sull\'intelligenza artificiale';
 const description =
   'Tre libri sull\'intelligenza artificiale: Il Futuro non è scritto, L\'Intelligenza Artificiale in Pratica, Restare Umani. Per capire e governare l\'AI nel lavoro umano.';
+
+const author = {
+  '@type': 'Person',
+  name: 'Stefano Andrello',
+  url: 'https://stefanoandrello.me/chi-sono',
+};
+
+const booksSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Book',
+      '@id': 'https://stefanoandrello.me#book-futuro-non-scritto',
+      name: 'Il Futuro non è scritto',
+      alternativeHeadline: "Memorie di un'Intelligenza Artificiale",
+      author,
+      inLanguage: 'it',
+      url: 'https://www.amazon.it/dp/B0F8K8367C',
+      identifier: { '@type': 'PropertyValue', propertyID: 'ASIN', value: 'B0F8K8367C' },
+    },
+    {
+      '@type': 'Book',
+      '@id': 'https://stefanoandrello.me#book-ia-in-pratica',
+      name: "L'Intelligenza Artificiale in Pratica",
+      alternativeHeadline: 'Guida critica per educatori e professionisti',
+      author,
+      datePublished: '2025-12-04',
+      inLanguage: 'it',
+      numberOfPages: 206,
+      url: 'https://www.amazon.it/dp/B0G58CYJ4V',
+      identifier: { '@type': 'PropertyValue', propertyID: 'ASIN', value: 'B0G58CYJ4V' },
+    },
+    {
+      '@type': 'Book',
+      '@id': 'https://stefanoandrello.me#book-restare-umani',
+      name: "Restare Umani: Guida all'intelligenza artificiale per chi non vuole smettere di pensare",
+      alternativeHeadline: "Manifesto antropocentrico sull'intelligenza artificiale",
+      author,
+      datePublished: '2026-04-28',
+      inLanguage: 'it',
+      numberOfPages: 199,
+      isbn: '9798259248908',
+      url: 'https://www.amazon.it/dp/B0GYX3JK3Z',
+      identifier: [
+        { '@type': 'PropertyValue', propertyID: 'ISBN', value: '9798259248908' },
+        { '@type': 'PropertyValue', propertyID: 'ASIN', value: 'B0GYX3JK3Z' },
+      ],
+    },
+  ],
+};
 ---
 
 <BaseLayout title={title} description={description}>
@@ -288,4 +338,6 @@ const description =
       </div>
     </Container>
   </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(booksSchema)} />
 </BaseLayout>

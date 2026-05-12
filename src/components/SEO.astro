@@ -18,6 +18,7 @@ interface Props {
   ogImage?: string;
   schemaType?: SchemaType;
   faq?: FaqItem[];
+  noindex?: boolean;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   ogImage,
   schemaType = 'WebSite',
   faq,
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://stefanoandrello.me';
@@ -245,6 +247,7 @@ const ogImageAlt = 'Stefano Andrello — AI Strategist per PMI italiane';
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex,nofollow" />}
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

@@ -4,9 +4,42 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
 
-const title = 'Contatti — Stefano Andrello | AI Strategist per PMI italiane';
+const title = 'Contatti — Stefano Andrello | AI Strategist per PMI';
 const description =
-  'Scrivimi per parlare di formazione AI, consulenza strategica, sviluppo MCP, AI agentica. Risposta entro 24h lavorative. info@stefanoandrello.me — Corsico (MI).';
+  "Scrivimi per consulenza strategica AI, formazione su misura, sviluppo MCP, AI agentica. Risposta entro 24h. Corsico (MI), Italia.";
+
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://stefanoandrello.me#service',
+  name: 'Stefano Andrello — AI Strategist',
+  description:
+    'Consulenza strategica AI, formazione su misura, sviluppo agenti AI e MCP server per PMI italiane.',
+  url: 'https://stefanoandrello.me',
+  email: 'info@stefanoandrello.me',
+  telephone: '+39 347 685 9801',
+  areaServed: { '@type': 'Country', name: 'Italia' },
+  serviceType: [
+    'Consulenza strategica AI',
+    'Formazione AI su misura',
+    'Sviluppo AI agentica',
+    'Sviluppo MCP server',
+    'Speaking ed eventi',
+  ],
+  provider: {
+    '@type': 'Person',
+    name: 'Stefano Andrello',
+    url: 'https://stefanoandrello.me/chi-sono',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Corsico',
+    addressLocality: 'Corsico',
+    addressRegion: 'MI',
+    postalCode: '20094',
+    addressCountry: 'IT',
+  },
+};
 ---
 
 <BaseLayout title={title} description={description}>
@@ -194,6 +227,8 @@ const description =
       </div>
     </Container>
   </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(professionalServiceSchema)} />
 </BaseLayout>
 
 <script>

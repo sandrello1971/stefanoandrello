@@ -1,0 +1,291 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+
+const title = 'Glossario AI per PMI italiane — termini essenziali';
+const description =
+  'Glossario di 30 termini fondamentali sull\'intelligenza artificiale per PMI italiane: definizioni chiare di MCP, agenti AI, EU AI Act, AI Literacy, prompt engineering, human-in-the-loop e altri.';
+
+interface Term {
+  id: string;
+  name: string;
+  definition: string;
+  example?: string;
+}
+
+const terms: Term[] = [
+  {
+    id: 'agente-ai',
+    name: 'Agente AI',
+    definition:
+      'Un agente AI è un sistema di intelligenza artificiale che esegue un compito articolato decidendo autonomamente le azioni intermedie necessarie a completare l\'obiettivo. A differenza di un chatbot, che risponde turno per turno, un agente AI continua a operare fino al raggiungimento del risultato, sotto supervisione umana.',
+    example:
+      'Esempio per una PMI: un agente AI che legge le fatture passive in arrivo, le riconcilia con gli ordini di acquisto e segnala incongruenze al responsabile amministrativo.',
+  },
+  {
+    id: 'ai-act',
+    name: 'AI Act (EU AI Act)',
+    definition:
+      'L\'AI Act è il Regolamento (UE) 2024/1689, pubblicato il 12 luglio 2024 ed entrato in vigore il 1 agosto 2024. È la prima legge organica al mondo sull\'intelligenza artificiale, e classifica i sistemi di AI in base al rischio. Si applica a chiunque sviluppi o utilizzi AI in azienda nell\'Unione Europea, comprese le PMI italiane.',
+  },
+  {
+    id: 'ai-antropocentrica',
+    name: 'AI Antropocentrica',
+    definition:
+      'L\'AI antropocentrica è un approccio all\'intelligenza artificiale che mantiene l\'essere umano al centro delle decisioni, considerando l\'AI come strumento al servizio delle persone. È il quadro filosofico di riferimento del Regolamento europeo sull\'AI e della maggior parte delle policy aziendali responsabili in Italia.',
+  },
+  {
+    id: 'ai-generativa',
+    name: 'AI Generativa',
+    definition:
+      'L\'AI generativa è una categoria di sistemi di intelligenza artificiale che produce nuovi contenuti — testo, immagini, audio, video, codice — a partire da una richiesta dell\'utente. Esempi: ChatGPT, Claude, Gemini, Microsoft Copilot, Midjourney. È la tecnologia che ha portato l\'AI nel lavoro quotidiano delle PMI.',
+  },
+  {
+    id: 'ai-literacy',
+    name: 'AI Literacy',
+    definition:
+      'L\'AI literacy, definita dall\'Articolo 3(56) del Regolamento UE 2024/1689, è l\'insieme delle competenze, conoscenze e comprensione che permettono di usare i sistemi di AI in modo informato, consapevole di opportunità e rischi. Dal 2 febbraio 2025 è obbligatoria per chi usa AI in azienda (Art. 4).',
+  },
+  {
+    id: 'ai-strategist',
+    name: 'AI Strategist',
+    definition:
+      'Un AI Strategist è un professionista che affianca la direzione di un\'azienda nelle scelte di integrazione dell\'intelligenza artificiale: dove l\'AI ha senso, con quali priorità, con quale governance. È una figura ibrida fra consulente strategico e tecnologo, focalizzata sulla traduzione fra capacità tecnica e valore di business.',
+  },
+  {
+    id: 'allucinazione',
+    name: 'Allucinazione (AI)',
+    definition:
+      'Un\'allucinazione è un output prodotto da un sistema di AI generativa che appare plausibile e ben scritto ma è fattualmente errato — un nome inventato, una citazione falsa, un dato statistico non reale. Le allucinazioni sono il motivo per cui ogni output AI di rilievo richiede verifica umana prima dell\'uso.',
+  },
+  {
+    id: 'articolo-4-ai-act',
+    name: 'Articolo 4 EU AI Act',
+    definition:
+      'L\'Articolo 4 del Regolamento UE 2024/1689 obbliga chi sviluppa o utilizza sistemi di intelligenza artificiale a garantire un livello sufficiente di AI literacy al personale. È applicabile dal 2 febbraio 2025. La responsabilità è in capo al datore di lavoro. Si applica a tutte le PMI italiane che usano AI per finalità lavorative.',
+  },
+  {
+    id: 'audit-trail',
+    name: 'Audit Trail (AI)',
+    definition:
+      'L\'audit trail è la traccia documentata di tutte le operazioni eseguite da un sistema di AI: input ricevuto, decisione presa, output prodotto, supervisione umana applicata. È un requisito centrale per dimostrare conformità in caso di ispezione, in particolare per sistemi ad alto rischio secondo l\'EU AI Act.',
+  },
+  {
+    id: 'bias-algoritmico',
+    name: 'Bias Algoritmico',
+    definition:
+      'Il bias algoritmico è una distorsione sistematica nell\'output di un sistema di AI dovuta a sbilanciamenti nei dati di addestramento o nelle scelte di progettazione. Tipico esempio: un sistema di screening curriculum che penalizza candidature femminili perché addestrato su decisioni storiche di un settore maschilizzato.',
+  },
+  {
+    id: 'chatbot',
+    name: 'Chatbot',
+    definition:
+      'Un chatbot è un sistema conversazionale che risponde a una domanda alla volta, senza memoria persistente o azioni autonome. A differenza di un agente AI, il chatbot si ferma a ogni turno aspettando il prossimo input umano. Esempi storici: i bot di customer service; esempi moderni: l\'interfaccia base di ChatGPT.',
+  },
+  {
+    id: 'deployer',
+    name: 'Deployer (EU AI Act)',
+    definition:
+      'Un deployer è chi utilizza un sistema di intelligenza artificiale nel proprio lavoro per finalità professionali, secondo la terminologia del Regolamento UE 2024/1689. La maggioranza delle PMI italiane è deployer (usa l\'AI), non provider (la sviluppa). Le responsabilità di compliance sono in capo al deployer, anche se il modello è di terzi.',
+  },
+  {
+    id: 'embedding',
+    name: 'Embedding',
+    definition:
+      'Un embedding è una rappresentazione numerica vettoriale di un testo, immagine o altro dato che cattura il suo significato semantico. Permette ai sistemi di AI di confrontare elementi diversi misurando la "distanza" fra significati. È il meccanismo alla base della ricerca semantica e del RAG.',
+  },
+  {
+    id: 'fine-tuning',
+    name: 'Fine-tuning',
+    definition:
+      'Il fine-tuning è la pratica di addestrare ulteriormente un modello AI preesistente su un dataset specifico — per esempio i documenti aziendali, lo stile di scrittura di un\'azienda, casi del proprio settore. Permette di adattare un modello generale a un dominio specifico senza ricostruirlo da zero.',
+  },
+  {
+    id: 'governance-ai',
+    name: 'Governance AI',
+    definition:
+      'La governance AI è l\'insieme di policy, procedure, responsabilità e controlli che un\'organizzazione adotta per gestire i sistemi di AI in modo sicuro, conforme alle norme e allineato agli obiettivi aziendali. Include la selezione degli ambiti d\'uso, le regole operative, l\'audit e la formazione del personale.',
+  },
+  {
+    id: 'human-in-the-loop',
+    name: 'Human-in-the-loop',
+    definition:
+      'Human-in-the-loop è un modello operativo in cui un essere umano interviene nel processo decisionale di un sistema di AI — verificando, validando o correggendo l\'output prima che produca effetti. È l\'opposto dell\'automazione cieca e il principio operativo della maggior parte delle integrazioni AI responsabili.',
+  },
+  {
+    id: 'inference',
+    name: 'Inference',
+    definition:
+      'L\'inference è la fase in cui un modello AI addestrato produce un output a partire da un input nuovo — per esempio quando ChatGPT risponde a una domanda. Si distingue dalla fase di training (addestramento), molto più costosa, che avviene una sola volta. Le PMI usano modelli in inference, non li addestrano.',
+  },
+  {
+    id: 'llm',
+    name: 'LLM (Large Language Model)',
+    definition:
+      'Un LLM è un modello di intelligenza artificiale addestrato su grandi quantità di testo, capace di comprendere e generare linguaggio naturale. Esempi: GPT-4 (OpenAI), Claude (Anthropic), Gemini (Google), Llama (Meta). Sono la tecnologia alla base degli assistenti conversazionali che le PMI usano quotidianamente.',
+  },
+  {
+    id: 'mcp',
+    name: 'MCP (Model Context Protocol)',
+    definition:
+      'MCP (Model Context Protocol) è il protocollo standard, definito da Anthropic nel 2024 e adottato dai principali provider AI, che permette ai modelli di linguaggio di accedere a dati e strumenti aziendali in modo strutturato e governato. Risolve il problema di "collegare un\'AI al gestionale" senza copiare i dati nel prompt.',
+  },
+  {
+    id: 'policy-ai',
+    name: 'Policy AI',
+    definition:
+      'Una policy AI è il documento aziendale che definisce cosa è permesso, cosa richiede autorizzazione e cosa è vietato in tema di uso dell\'intelligenza artificiale all\'interno dell\'organizzazione. Include regole sui dati sensibili, sull\'uso di tool generalisti, sulla documentazione degli output, sulla supervisione umana richiesta.',
+  },
+  {
+    id: 'prompt',
+    name: 'Prompt',
+    definition:
+      'Un prompt è l\'istruzione testuale fornita a un sistema di AI generativa per ottenere un output specifico. La qualità del prompt influisce direttamente sulla qualità del risultato. Un buon prompt include contesto, ruolo, vincoli, formato di output, eventuali esempi. La capacità di scrivere prompt efficaci si chiama prompt engineering.',
+  },
+  {
+    id: 'prompt-engineering',
+    name: 'Prompt Engineering',
+    definition:
+      'Il prompt engineering è la pratica di formulare richieste a un sistema di AI in modo da ottenere risultati utili. Non è "trucchi", è metodo: definire il contesto, assegnare un ruolo al modello, vincolare il formato, fornire esempi, iterare. Per una PMI è la skill operativa di base per usare bene l\'AI quotidianamente.',
+  },
+  {
+    id: 'provider',
+    name: 'Provider (EU AI Act)',
+    definition:
+      'Un provider è chi sviluppa un sistema di intelligenza artificiale o un modello AI per finalità generali e lo immette sul mercato, secondo il Regolamento UE 2024/1689. Esempi: OpenAI, Anthropic, Google, Microsoft, Mistral. Le PMI italiane sono raramente provider — la maggior parte è deployer, ovvero utilizza modelli di terzi.',
+  },
+  {
+    id: 'rag',
+    name: 'RAG (Retrieval-Augmented Generation)',
+    definition:
+      'RAG (Retrieval-Augmented Generation) è una tecnica che fa accedere un modello di AI a una base documentale aziendale specifica prima di generare la risposta. Permette di interrogare i propri dati interni senza inviarli interamente nel prompt e senza fare fine-tuning del modello. È la base tecnica della maggior parte degli "AI per la conoscenza aziendale".',
+  },
+  {
+    id: 'sandbox-regolatorio',
+    name: 'Sandbox Regolatorio',
+    definition:
+      'Un sandbox regolatorio è un ambiente di sperimentazione controllato, previsto dall\'Articolo 57 del Regolamento UE 2024/1689, in cui le aziende possono testare sistemi di AI innovativi sotto supervisione di un\'autorità competente, con condizioni regolatorie temporaneamente facilitate. Pensato per favorire l\'innovazione, in particolare per le PMI.',
+  },
+  {
+    id: 'sistema-ai-alto-rischio',
+    name: 'Sistema AI ad Alto Rischio',
+    definition:
+      'Un sistema di AI ad alto rischio, secondo l\'EU AI Act, è un sistema che opera in ambiti elencati nell\'Allegato III del regolamento: per esempio scoring del credito, screening curriculum, gestione di infrastrutture critiche, applicazioni in ambito scolastico o sanitario. Questi sistemi devono rispettare obblighi specifici di trasparenza, sicurezza, supervisione umana.',
+  },
+  {
+    id: 'token',
+    name: 'Token',
+    definition:
+      'Un token è l\'unità minima di testo che un modello di AI elabora. Può essere una parola breve, parte di una parola lunga, o un singolo carattere. I costi delle API dei principali provider AI sono calcolati in token, non in parole. Una pagina A4 di testo in italiano corrisponde tipicamente a 500-700 token.',
+  },
+  {
+    id: 'vector-database',
+    name: 'Vector Database',
+    definition:
+      'Un vector database è un database specializzato che memorizza embedding (rappresentazioni numeriche di testi o altri dati) e permette ricerche per similarità semantica anziché per parole esatte. È un componente tecnico essenziale per costruire sistemi RAG su dati aziendali. Esempi: Pinecone, Weaviate, Qdrant, pgvector.',
+  },
+];
+
+// Schema.org DefinedTermSet
+const definedTermSetSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  '@id': 'https://stefanoandrello.me/glossario#glossario-ai',
+  name: 'Glossario AI per PMI italiane',
+  description:
+    "Glossario di termini essenziali sull'intelligenza artificiale per PMI italiane, con definizioni in italiano.",
+  inLanguage: 'it',
+  url: 'https://stefanoandrello.me/glossario',
+  hasDefinedTerm: terms.map((t) => ({
+    '@type': 'DefinedTerm',
+    '@id': `https://stefanoandrello.me/glossario#${t.id}`,
+    name: t.name,
+    description: t.definition,
+    inDefinedTermSet: 'https://stefanoandrello.me/glossario#glossario-ai',
+    url: `https://stefanoandrello.me/glossario#${t.id}`,
+  })),
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-20 md:py-28">
+    <Container>
+      <nav class="text-xs text-stone mb-8" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-midnight transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-charcoal">Glossario</span>
+      </nav>
+      <p class="text-xs uppercase tracking-widest text-stone font-medium">
+        Glossario
+      </p>
+      <h1 class="mt-4 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-midnight leading-[1.1]">
+        Glossario AI per PMI.
+      </h1>
+      <p class="mt-6 text-xl text-stone leading-relaxed max-w-2xl">
+        Trenta termini essenziali sull&apos;intelligenza artificiale, con definizioni chiare in italiano. Pensato per imprenditori, HR director, IT manager che non vogliono leggere paper accademici.
+      </p>
+    </Container>
+  </section>
+
+  <section class="pb-16">
+    <Container>
+      <nav class="max-w-3xl flex flex-wrap gap-x-3 gap-y-2 text-sm" aria-label="Indice rapido">
+        {terms.map((t) => (
+          <a
+            href={`#${t.id}`}
+            class="text-charcoal hover:text-gold/80 underline decoration-stone/40 underline-offset-2 hover:decoration-gold transition-colors"
+          >
+            {t.name}
+          </a>
+        ))}
+      </nav>
+    </Container>
+  </section>
+
+  <section class="pb-24">
+    <Container>
+      <dl class="max-w-3xl space-y-12">
+        {terms.map((t) => (
+          <div id={t.id} class="border-t border-stone/20 pt-8 scroll-mt-20">
+            <dt>
+              <h2 class="text-2xl md:text-3xl font-heading font-semibold text-midnight leading-tight">
+                {t.name}
+              </h2>
+            </dt>
+            <dd class="mt-4 text-lg text-charcoal leading-relaxed">
+              {t.definition}
+            </dd>
+            {t.example && (
+              <dd class="mt-4 text-base text-stone leading-relaxed italic border-l-2 border-gold/60 pl-4">
+                {t.example}
+              </dd>
+            )}
+          </div>
+        ))}
+      </dl>
+    </Container>
+  </section>
+
+  <section class="py-20 bg-sand border-t border-stone/20">
+    <Container>
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-heading font-semibold text-midnight leading-tight">
+          Manca un termine che ti interessa?
+        </h2>
+        <p class="mt-6 text-lg text-charcoal leading-relaxed">
+          Questo glossario cresce nel tempo. Scrivimi se cerchi una definizione che non trovi: la aggiungo se è utile ad altre PMI.
+        </p>
+        <a
+          href="/contatti"
+          class="mt-8 inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+        >
+          Scrivimi &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(definedTermSetSchema)} />
+</BaseLayout>
