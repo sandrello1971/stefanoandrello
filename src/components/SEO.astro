@@ -87,7 +87,26 @@ const baseSchema: Record<SchemaType, Record<string, unknown>> = {
         '@type': 'Person',
         '@id': `${siteUrl}#stefano`,
         name: 'Stefano Andrello',
-        jobTitle: 'AI Strategist',
+        jobTitle: ['Consulente AI', 'Formatore AI', 'AI Strategist'],
+        description:
+          "Consulente e formatore in intelligenza artificiale per PMI italiane. Affianca le direzioni aziendali nell'integrazione dell'AI con metodo human-in-the-loop, progetta formazione conforme all'Art. 4 dell'EU AI Act, sviluppa agenti AI e MCP server. Autore di tre libri sull'AI antropocentrica.",
+        hasOccupation: {
+          '@type': 'Occupation',
+          name: 'Consulente e formatore in intelligenza artificiale',
+          occupationLocation: { '@type': 'Country', name: 'Italia' },
+        },
+        knowsAbout: [
+          'Consulenza in intelligenza artificiale per PMI',
+          'Formazione aziendale sull\'intelligenza artificiale',
+          'EU AI Act (Regolamento UE 2024/1689)',
+          'AI Literacy obbligatoria (Art. 4)',
+          'Governance e policy d\'uso dell\'AI in azienda',
+          'AI agentica e agenti AI per processi aziendali',
+          'Model Context Protocol (MCP)',
+          'Human-in-the-loop e produttività governata',
+          'AI antropocentrica',
+        ],
+        knowsLanguage: ['it', 'en'],
         url: siteUrl,
         birthPlace: {
           '@type': 'Place',
@@ -127,10 +146,9 @@ const baseSchema: Record<SchemaType, Record<string, unknown>> = {
           },
         },
         sameAs: [
-          'https://www.linkedin.com/in/sandrello/',
+          'https://www.linkedin.com/in/stefanoandrello/',
           'https://www.facebook.com/Stefano.Andrello.Noscite',
           'https://www.instagram.com/stefano_andrello/',
-          'https://github.com/',
         ],
         owns: [
           {

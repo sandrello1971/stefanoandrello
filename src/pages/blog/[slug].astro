@@ -28,7 +28,10 @@ const dateFormatter = new Intl.DateTimeFormat('it-IT', {
 const pubDateStr = dateFormatter.format(data.pubDate);
 const updatedStr = data.updatedDate ? dateFormatter.format(data.updatedDate) : null;
 
-const title = `${data.title} — Stefano Andrello`;
+// Il suffisso col brand si aggiunge solo se il <title> resta entro i ~60 caratteri
+// che Google mostra in SERP: oltre, verrebbe troncato proprio sul nome.
+const title =
+  data.title.length <= 41 ? `${data.title} — Stefano Andrello` : data.title;
 const description = data.description;
 
 const articleSchema = {
