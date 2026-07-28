@@ -1,0 +1,84 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import CostCalculator from '../components/sections/CostCalculator.astro';
+
+const title = 'Calcolatore delle ore perse — quanto costa alla tua PMI';
+const description =
+  'Calcola in euro il costo annuale delle ore che il tuo team perde in attività che l\'AI può assistere o eliminare: email riscritte, documenti cercati, report compilati a mano, riunioni ridondanti.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-24 md:py-32">
+    <Container>
+      <div class="max-w-3xl">
+        <p class="text-xs uppercase tracking-widest text-stone font-medium">
+          Strumento gratuito
+        </p>
+        <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-[1.1] text-midnight">
+          Ogni giorno la tua azienda perde ore che non sa di perdere.
+        </h1>
+        <p class="mt-8 text-xl text-stone leading-relaxed">
+          Riunioni che si potevano evitare. Email scritte tre volte. Documenti cercati per venti minuti. Report compilati a mano. Tutto questo ha un costo in euro &mdash; misurabile. Muovi i tre valori qui sotto e leggi la cifra.
+        </p>
+      </div>
+
+      <div class="mt-14">
+        <CostCalculator />
+      </div>
+
+      <div class="mt-10">
+        <a
+          href="/contatti?tipo=consulenza-strategica"
+          class="inline-flex items-center justify-center bg-gold text-midnight rounded-full px-8 py-3 font-medium hover:scale-[1.02] hover:bg-gold/90 transition-all"
+        >
+          Parliamo di come ridurre questo costo &rarr;
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-20 bg-sand">
+    <Container>
+      <div class="max-w-3xl">
+        <p class="text-xs uppercase tracking-widest text-stone font-medium">
+          Come è calcolato
+        </p>
+        <h2 class="mt-6 text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+          Nessuna magia: tre numeri e una moltiplicazione.
+        </h2>
+        <div class="mt-8 space-y-5 text-lg text-charcoal leading-relaxed">
+          <p>
+            Il conto è <em>dipendenti × costo orario lordo × ore perse al giorno × 220 giorni lavorativi</em>. Duecentoventi è la stima convenzionale di giornate lavorate in un anno in Italia, al netto di ferie, festività e una quota media di assenze.
+          </p>
+          <p>
+            Il valore che conta davvero è il terzo: le ore perse al giorno per persona. Il default è 1,5 ore, che nell&apos;esperienza sul campo con le PMI italiane è una stima prudente per un ruolo d&apos;ufficio &mdash; ricerca di documenti, riscritture, allineamenti, compilazioni manuali. Se ti sembra alto, prova a tenere un diario per tre giorni: quasi sempre la cifra reale è più alta di quella percepita.
+          </p>
+          <p class="text-stone">
+            Un&apos;avvertenza onesta: questa non è la cifra che risparmierai. È la dimensione del problema, non del beneficio. Nessuna integrazione AI azzera quelle ore, e una parte di quel tempo è lavoro di relazione che non va automatizzato affatto. Serve a decidere se il tema merita mezz&apos;ora della tua attenzione o no.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-20">
+    <Container>
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-heading font-semibold text-midnight leading-tight">
+          E adesso che hai il numero?
+        </h2>
+        <div class="mt-8 space-y-5 text-lg text-charcoal leading-relaxed">
+          <p>
+            Il passo successivo non è comprare uno strumento. È capire quali di quelle ore si possono restituire alle persone senza perdere controllo sulla qualità del lavoro: l&apos;AI propone e accelera, la persona verifica, decide e firma. Lo chiamo <a href="/#human-in-the-loop" class="text-midnight underline decoration-gold underline-offset-4">produttività governata</a>.
+          </p>
+          <p>
+            Se prima di parlare con qualcuno preferisci farti un&apos;idea da solo, due punti di partenza: il <a href="/glossario" class="text-midnight underline decoration-gold underline-offset-4">glossario AI per PMI</a> per i termini che sentirai in ogni riunione, e la <a href="/blog/guida-eu-ai-act-pmi-italiane" class="text-midnight underline decoration-gold underline-offset-4">guida all&apos;EU AI Act</a> per gli obblighi che riguardano già la tua azienda.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
